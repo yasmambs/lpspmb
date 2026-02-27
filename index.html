@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SPMB Modern Portal</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --primary: #0f766e;
+  --secondary: #14b8a6;
+  --dark: #0f172a;
+  --light: #f8fafc;
+  --gray: #64748b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: var(--light);
+  color: var(--dark);
+  scroll-behavior: smooth;
+}
+
+/* NAVBAR */
+nav {
+  position: sticky;
+  top: 0;
+  background: white;
+  padding: 18px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  z-index: 1000;
+}
+
+nav h2 {
+  color: var(--primary);
+}
+
+nav ul {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--dark);
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: var(--primary);
+}
+
+.btn {
+  background: var(--primary);
+  color: white;
+  padding: 10px 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: var(--secondary);
+  transform: translateY(-2px);
+}
+
+/* HERO */
+.hero {
+  padding: 120px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+}
+
+.hero-text {
+  max-width: 500px;
+}
+
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  color: var(--gray);
+  margin-bottom: 25px;
+}
+
+.hero img {
+  width: 400px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+/* SECTION */
+section {
+  padding: 100px 8%;
+}
+
+/* CARDS */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* STATS */
+.stats {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  text-align: center;
+}
+
+.stat h2 {
+  font-size: 36px;
+  color: var(--primary);
+}
+
+footer {
+  background: var(--dark);
+  color: white;
+  text-align: center;
+  padding: 40px 10px;
+  margin-top: 80px;
+}
+
+/* ANIMATION */
+.fade {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.8s;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media(max-width: 900px){
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <h2>SPMB 2026</h2>
+  <ul>
+    <li><a href="#informasi">Informasi</a></li>
+    <li><a href="#jadwal">Jadwal</a></li>
+    <li><a href="#alur">Alur</a></li>
+    <li><a href="#kontak">Kontak</a></li>
+  </ul>
+  <a href="#" class="btn">Daftar</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-text fade">
+    <h1>Penerimaan Siswa Baru 2026</h1>
+    <p>Bergabunglah bersama madrasah unggulan dengan sistem pendaftaran online modern dan mudah.</p>
+    <a href="#" class="btn">Daftar Sekarang</a>
+  </div>
+  <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644" class="fade">
+</section>
+
+<section id="informasi">
+  <h2 style="margin-bottom:40px;">Keunggulan Kami</h2>
+  <div class="cards">
+    <div class="card fade">
+      <h3>Guru Profesional</h3>
+      <p>Tenaga pendidik berpengalaman dan kompeten di bidangnya.</p>
+    </div>
+    <div class="card fade">
+      <h3>Fasilitas Lengkap</h3>
+      <p>Ruang belajar nyaman dan fasilitas modern.</p>
+    </div>
+    <div class="card fade">
+      <h3>Sistem Digital</h3>
+      <p>Pendaftaran dan pengumuman berbasis online.</p>
+    </div>
+  </div>
+</section>
+
+<section id="jadwal">
+  <h2 style="text-align:center;margin-bottom:40px;">Statistik SPMB</h2>
+  <div class="stats">
+    <div class="stat fade">
+      <h2 id="count1">0</h2>
+      <p>Pendaftar</p>
+    </div>
+    <div class="stat fade">
+      <h2 id="count2">0</h2>
+      <p>Diterima</p>
+    </div>
+  </div>
+</section>
+
+<section id="alur">
+  <h2 style="margin-bottom:40px;">Alur Pendaftaran</h2>
+  <div class="cards">
+    <div class="card fade">
+      <h3>1. Buat Akun</h3>
+    </div>
+    <div class="card fade">
+      <h3>2. Isi Formulir</h3>
+    </div>
+    <div class="card fade">
+      <h3>3. Upload Berkas</h3>
+    </div>
+    <div class="card fade">
+      <h3>4. Pengumuman</h3>
+    </div>
+  </div>
+</section>
+
+<footer id="kontak">
+  <p>© 2026 SPMB Madrasah Digital</p>
+</footer>
+
+<script>
+// Fade animation on scroll
+const fades = document.querySelectorAll('.fade');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('show');
+    }
+  });
+});
+fades.forEach(f => observer.observe(f));
+
+// Counter animation
+function animateCount(id, target) {
+  let count = 0;
+  const el = document.getElementById(id);
+  const interval = setInterval(() => {
+    count += Math.ceil(target / 100);
+    if (count >= target) {
+      count = target;
+      clearInterval(interval);
+    }
+    el.innerText = count;
+  }, 20);
+}
+animateCount("count1", 320);
+animateCount("count2", 240);
+</script>
+
+</body>
+</html>
