@@ -18,9 +18,42 @@
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
-html,body{overflow-x:hidden;font-family:'Inter',sans-serif;background:#fff;color:var(--dark);}
+html{scroll-behavior:smooth;}
+body{
+  overflow-x:hidden;
+  font-family:'Inter',sans-serif;
+  background:#fff;
+  color:var(--dark);
+}
 
-section{padding:100px 8%;}
+/* SUBTLE ISLAMIC PATTERN */
+body::before{
+  content:"";
+  position:fixed;
+  width:600px;
+  height:600px;
+  top:-200px;
+  right:-200px;
+  background:url('data:image/svg+xml;utf8,\
+  <svg xmlns="http://www.w3.org/2000/svg" width="400" height="400">\
+  <circle cx="200" cy="200" r="180" stroke="%23166534" stroke-width="2" fill="none" opacity="0.05"/>\
+  </svg>');
+  background-repeat:no-repeat;
+  pointer-events:none;
+  z-index:-1;
+}
+
+section{
+  padding:100px 8%;
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 0.8s ease;
+}
+section.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
 h1,h2,h3{font-weight:700;}
 p{color:var(--muted);line-height:1.6;}
 
@@ -29,7 +62,7 @@ nav{
   position:fixed;
   top:0;
   width:100%;
-  background:var(--white);
+  background:white;
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -41,9 +74,6 @@ nav{
   font-weight:700;
   font-size:18px;
   color:var(--primary);
-  display:flex;
-  align-items:center;
-  gap:8px;
 }
 .nav-links{
   display:flex;
@@ -54,6 +84,10 @@ nav{
   text-decoration:none;
   color:var(--dark);
   font-weight:500;
+}
+.nav-links a.active{
+  color:var(--primary);
+  font-weight:600;
 }
 .login-btn{
   background:var(--primary);
@@ -69,6 +103,8 @@ nav{
   background:linear-gradient(135deg,var(--primary),#15803D);
   color:white;
   text-align:center;
+  opacity:1;
+  transform:none;
 }
 .hero h1{
   font-size:44px;
@@ -88,7 +124,6 @@ nav{
   text-decoration:none;
   margin-right:15px;
   font-weight:600;
-  transition:0.3s;
 }
 .cta-outline{
   border:2px solid white;
@@ -97,11 +132,7 @@ nav{
   border-radius:30px;
   text-decoration:none;
 }
-.cta:hover{transform:translateY(-3px);}
-
-.mockup{
-  margin-top:60px;
-}
+.mockup{margin-top:60px;}
 .mockup img{
   width:100%;
   max-width:850px;
@@ -148,10 +179,7 @@ nav{
 }
 
 /* FAQ */
-.faq-item{
-  margin-bottom:15px;
-  cursor:pointer;
-}
+.faq-item{margin-bottom:15px;cursor:pointer;}
 .faq-question{
   background:var(--primary-soft);
   padding:15px;
@@ -177,15 +205,12 @@ footer{
   gap:20px;
   align-items:center;
 }
-.social-icons{
-  display:flex;
-  gap:16px;
+.social-title{
+  font-weight:700;
+  margin-bottom:10px;
 }
-.social-icons i{cursor:pointer;}
-.footer-address{
-  font-size:14px;
-  text-align:right;
-}
+.social-icons{display:flex;gap:16px;}
+.footer-address{font-size:14px;text-align:right;}
 .footer-bottom{
   text-align:center;
   margin-top:30px;
@@ -194,7 +219,7 @@ footer{
   font-size:14px;
 }
 
-/* WA */
+/* WHATSAPP */
 .wa-float{
   position:fixed;
   bottom:20px;
@@ -233,22 +258,20 @@ footer{
 <body>
 
 <nav>
-  <div class="logo"><i data-feather="globe"></i> SPMB 2026</div>
+  <div class="logo">SPMB 2026</div>
   <div class="nav-links" id="navMenu">
-    <a href="#">Beranda</a>
-    <a href="#">Statistik</a>
-    <a href="#">Alur</a>
-    <a href="#">Jadwal</a>
-    <a href="#">Program</a>
-    <a href="#">Maps</a>
+    <a href="#beranda">Beranda</a>
+    <a href="#program">Program</a>
+    <a href="#maps">Kontak</a>
+    <a href="#faq">FAQ</a>
     <a href="#" class="login-btn">Login</a>
   </div>
   <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 </nav>
 
-<section class="hero">
+<section id="beranda" class="hero">
   <h1>Penerimaan Peserta Didik Baru 2026</h1>
-  <p>Modern International Islamic School dengan standar global dan pembinaan karakter Qurani.</p>
+  <p>Modern International Islamic School berstandar global dan pembinaan karakter Qurani.</p>
   <a href="#" class="cta">Daftar Sekarang</a>
   <a href="#" class="cta-outline">Lihat Program</a>
 
@@ -257,16 +280,25 @@ footer{
   </div>
 </section>
 
-<section>
-  <h2 style="text-align:center;margin-bottom:50px;">Statistik Sekolah</h2>
+<section id="program">
+  <h2 style="text-align:center;margin-bottom:50px;">Program Unggulan</h2>
   <div class="grid grid-3">
-    <div class="card"><h3>1200+</h3><p>Siswa Aktif</p></div>
-    <div class="card"><h3>50+</h3><p>Prestasi Nasional</p></div>
-    <div class="card"><h3>95%</h3><p>Lulus PTN</p></div>
+    <div class="card"><h3>Tahfidz Intensive</h3><p>Pembinaan hafalan terstruktur.</p></div>
+    <div class="card"><h3>STEM & Digital</h3><p>Program sains dan teknologi global.</p></div>
+    <div class="card"><h3>Leadership Global</h3><p>Pembinaan kepemimpinan internasional.</p></div>
   </div>
 </section>
 
-<section style="background:var(--primary-soft);">
+<section id="statistik">
+  <h2 style="text-align:center;margin-bottom:50px;">Statistik Sekolah</h2>
+  <div class="grid grid-3">
+    <div class="card"><h3 class="counter" data-target="1200">0</h3><p>Siswa Aktif</p></div>
+    <div class="card"><h3 class="counter" data-target="50">0</h3><p>Prestasi Nasional</p></div>
+    <div class="card"><h3 class="counter" data-target="95">0</h3><p>Lulus PTN (%)</p></div>
+  </div>
+</section>
+
+<section id="alur" style="background:var(--primary-soft);">
   <h2 style="text-align:center;margin-bottom:50px;">Alur Pendaftaran</h2>
   <div class="timeline">
     <div class="step">Registrasi</div>
@@ -276,38 +308,37 @@ footer{
   </div>
 </section>
 
-<section>
+<section id="jadwal">
   <h2 style="text-align:center;margin-bottom:30px;">Jadwal</h2>
   <div class="card" style="max-width:600px;margin:0 auto;text-align:center;">
     Gelombang 1: Januari - Maret 2026
   </div>
 </section>
 
-<section class="map">
+<section id="maps" class="map">
   <h2 style="text-align:center;margin-bottom:30px;">Lokasi Sekolah</h2>
   <iframe src="https://maps.google.com/maps?q=jakarta&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
 </section>
 
-<section>
+<section id="faq">
   <h2 style="text-align:center;margin-bottom:30px;">FAQ</h2>
   <div class="faq-item">
     <div class="faq-question" onclick="toggleFAQ(this)">Apakah tersedia asrama?</div>
     <div class="faq-answer">Ya, tersedia fasilitas boarding lengkap.</div>
   </div>
-  <div class="faq-item">
-    <div class="faq-question" onclick="toggleFAQ(this)">Apakah ada kurikulum internasional?</div>
-    <div class="faq-answer">Sekolah mengintegrasikan kurikulum nasional & internasional.</div>
-  </div>
 </section>
 
 <footer>
   <div class="footer-top">
-    <div class="social-icons">
-      <i data-feather="youtube"></i>
-      <i data-feather="instagram"></i>
-      <i data-feather="facebook"></i>
-      <i data-feather="linkedin"></i>
-      <i data-feather="twitter"></i>
+    <div>
+      <div class="social-title">Ikuti Kami</div>
+      <div class="social-icons">
+        <i data-feather="youtube"></i>
+        <i data-feather="instagram"></i>
+        <i data-feather="facebook"></i>
+        <i data-feather="linkedin"></i>
+        <i data-feather="twitter"></i>
+      </div>
     </div>
     <div class="footer-address">
       Jl. Pendidikan No.1<br>
@@ -320,17 +351,50 @@ footer{
   </div>
 </footer>
 
-<a href="#" class="wa-float"><i data-feather="message-circle"></i></a>
+<a href="#" class="wa-float">
+  <i data-feather="phone"></i>
+</a>
 
 <script>
+feather.replace();
+
 function toggleMenu(){
   document.getElementById("navMenu").classList.toggle("show");
 }
+
 function toggleFAQ(el){
   const answer = el.nextElementSibling;
   answer.style.display = answer.style.display === "block" ? "none" : "block";
 }
-feather.replace();
+
+/* Scroll Reveal */
+const sections = document.querySelectorAll("section");
+window.addEventListener("scroll",()=>{
+  sections.forEach(sec=>{
+    const top = window.scrollY;
+    const offset = sec.offsetTop - 150;
+    if(top > offset){
+      sec.classList.add("show");
+    }
+  });
+});
+
+/* Counter Animation */
+const counters = document.querySelectorAll(".counter");
+counters.forEach(counter=>{
+  const update = ()=>{
+    const target = +counter.getAttribute("data-target");
+    const count = +counter.innerText;
+    const inc = target / 100;
+    if(count < target){
+      counter.innerText = Math.ceil(count + inc);
+      setTimeout(update,20);
+    }else{
+      counter.innerText = target + "+";
+    }
+  };
+  update();
+});
 </script>
 
 </body>
