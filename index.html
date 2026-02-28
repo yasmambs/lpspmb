@@ -10,7 +10,6 @@
 :root{
 --primary:#001f4d;
 --primary-light:#e0e6f0;
---primary-soft:#003366;
 --gold:#c6a75e;
 --text-dark:#0f172a;
 --text-light:#64748b;
@@ -29,6 +28,7 @@ body{font-family:'Inter',sans-serif;background:#fff;color:var(--text-dark);overf
 /* Navbar */
 .navbar{position:fixed; top:0; left:0; width:100%; display:flex; justify-content:space-between; align-items:center; padding:22px 8%; z-index:1000; transition:.3s;}
 .navbar.scrolled{background:rgba(255,255,255,.9);backdrop-filter:blur(14px);box-shadow:0 8px 30px rgba(0,0,0,.06);}
+.navbar a{transition:.3s;}
 .logo{display:flex;align-items:center;gap:12px;font-weight:800;color:var(--primary);}
 .logo img{width:42px;}
 .nav-links{display:flex;gap:20px;font-weight:600;align-items:center;}
@@ -67,13 +67,13 @@ background-color:var(--glass-bg);
 backdrop-filter:var(--glass-blur);
 border-radius:15px;
 margin-bottom:30px;
-background-image: url('data:image/svg+xml;utf8,<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="1.2" fill="%23c6a75e" opacity="0.2"/></svg>');
+background-image: url('data:image/svg+xml;utf8,<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="1.2" fill="%23c6a75e" opacity="0.15"/></svg>');
 background-repeat:repeat;
 }
 
 /* Headings */
-h2{font-size:32px;font-weight:800;margin-bottom:20px;display:flex;align-items:center;gap:12px;}
-h2 i{font-size:24px;}
+h2{font-size:32px;font-weight:800;margin-bottom:30px;display:flex;align-items:center;gap:12px;}
+h2 i{font-size:24px;color:var(--primary);}
 p{color:var(--text-light);line-height:1.8;}
 
 /* Grid */
@@ -153,6 +153,7 @@ footer p.address{margin-top:8px;font-weight:500;}
 </div>
 </section>
 
+<!-- Sections same as before -->
 <section id="alur">
 <h2><i class="fa-solid fa-list-ol"></i> Alur Pendaftaran</h2>
 <div class="grid">
@@ -166,7 +167,7 @@ footer p.address{margin-top:8px;font-weight:500;}
 <section id="jadwal">
 <h2><i class="fa-solid fa-calendar-days"></i> Jadwal Pendaftaran</h2>
 <div class="grid">
-<div class="card">Januari - Mei 2026</div>
+<div class="card"><i class="fa-solid fa-calendar-day"></i> Januari - Mei 2026</div>
 </div>
 </section>
 
@@ -289,6 +290,19 @@ let winScroll=document.documentElement.scrollTop;
 let height=document.documentElement.scrollHeight-document.documentElement.clientHeight;
 document.getElementById("progressBar").style.width=(winScroll/height)*100+"%";
 document.querySelector('.hero').style.backgroundPositionY = -(window.scrollY*0.25) + "px";
+
+/* Navbar text auto contrast */
+const hero=document.querySelector('.hero');
+const heroTop=hero.getBoundingClientRect().top;
+const heroHeight=hero.offsetHeight;
+let navbar=document.getElementById('navbar');
+if(window.scrollY<heroHeight*0.6){
+navbar.style.color= '#fff';
+document.querySelectorAll('.nav-links a').forEach(a=>a.style.color='#fff');
+}else{
+navbar.style.color= 'var(--primary)';
+document.querySelectorAll('.nav-links a').forEach(a=>a.style.color='var(--primary)');
+}
 });
 
 /* Counter */
