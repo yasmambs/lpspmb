@@ -37,17 +37,11 @@ body{font-family:'Inter',sans-serif;background:#fff;color:var(--text-dark);overf
 .nav-links a:hover::after{width:100%;}
 .toggle{display:none;font-size:24px;cursor:pointer;color:var(--emerald);}
 
-/* Hero with animated gradient */
+/* Hero Gulf style */
 .hero{
 height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;color:white;padding:0 8%;position:relative;overflow:hidden;
-background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)), url('https://images.unsplash.com/photo-1607013251379-e6eecfffe234?q=80&w=1400') center/cover no-repeat;
+background:linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.25)), url('https://images.unsplash.com/photo-1595484558177-b2037db5571b?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
 background-attachment: fixed;background-size: cover;
-animation: gradientShift 20s ease infinite;
-}
-@keyframes gradientShift{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
 }
 .hero h1{font-size:56px;font-weight:800;margin-bottom:20px;text-shadow:0 2px 8px rgba(0,0,0,.5);}
 .hero p{position:relative; z-index:1;font-size:20px;text-shadow:0 1px 6px rgba(0,0,0,.5);}
@@ -58,7 +52,7 @@ animation: gradientShift 20s ease infinite;
 .btn-outline{border:2px solid white;color:white;}
 .btn-outline:hover{background:white;color:var(--emerald);}
 
-/* Sections with subtle SVG pattern & glassmorphism */
+/* Sections glassmorphism + pattern */
 section{
 padding:90px 8%;
 position:relative;
@@ -78,7 +72,8 @@ p{color:var(--text-light);line-height:1.8;}
 
 /* Grid */
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px;}
-.card{background:var(--glass-bg);backdrop-filter:var(--glass-blur);padding:25px;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,.05);border:1px solid #f1f5f9;transition:.4s, transform .6s ease-out;background-image: linear-gradient(120deg, rgba(6,95,70,0.15), rgba(198,167,94,0.15));will-change: transform;}
+.card{opacity:0;transform:translateY(20px);background:var(--glass-bg);backdrop-filter:var(--glass-blur);padding:25px;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,.05);border:1px solid #f1f5f9;transition:.4s, transform .6s ease-out, opacity .6s ease;}
+.card.show{opacity:1;transform:translateY(0);}
 .card:hover{transform:translateY(-8px) scale(1.03);box-shadow:0 25px 70px rgba(6,95,70,.2);background-image: linear-gradient(120deg, rgba(6,95,70,0.35), rgba(198,167,94,0.35));}
 
 /* Counter */
@@ -99,10 +94,6 @@ p{color:var(--text-light);line-height:1.8;}
 .dot-nav{position:fixed;right:15px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:12px;z-index:999;}
 .dot-nav a{width:10px;height:10px;background:#cbd5e1;border-radius:50%;transition:.3s;}
 .dot-nav a:hover{background:var(--emerald);transform:scale(1.4);}
-
-/* Reveal */
-.reveal{opacity:0;transform:translateY(40px);transition:all 1s ease;}
-.reveal.active{opacity:1;transform:translateY(0);}
 
 /* Footer */
 footer{background:#fff;color:var(--text-dark);padding:50px 8% 30px;text-align:center;position:relative;}
@@ -156,7 +147,8 @@ footer p.address{margin-top:8px;font-weight:500;}
 </div>
 </section>
 
-<section id="alur" class="reveal">
+<!-- Alur -->
+<section id="alur">
 <h2><i class="fa-solid fa-list-ol"></i> Alur Pendaftaran</h2>
 <div class="grid">
 <div class="card">Isi Form Online</div>
@@ -166,22 +158,32 @@ footer p.address{margin-top:8px;font-weight:500;}
 </div>
 </section>
 
-<section id="jadwal" class="reveal">
+<!-- Jadwal -->
+<section id="jadwal">
 <h2><i class="fa-solid fa-calendar"></i> Jadwal Pendaftaran</h2>
-<p>Januari - Mei 2026</p>
+<div class="grid">
+<div class="card">Januari - Mei 2026</div>
+</div>
 </section>
 
-<section id="pengumuman" class="reveal">
+<!-- Pengumuman -->
+<section id="pengumuman">
 <h2><i class="fa-solid fa-bullhorn"></i> Pengumuman</h2>
-<p>Hasil seleksi diumumkan melalui website & email resmi.</p>
+<div class="grid">
+<div class="card">Hasil seleksi diumumkan via website & email resmi</div>
+</div>
 </section>
 
-<section id="brosur" class="reveal">
-<h2><i class="fa-solid fa-file-pdf"></i> Brosur Lengkap</h2>
-<div class="card">Download Brosur PDF</div>
+<!-- Brosur -->
+<section id="brosur">
+<h2><i class="fa-solid fa-file"></i> Brosur Lengkap</h2>
+<div class="grid">
+<div class="card"><img src="https://images.unsplash.com/photo-1612831455541-c6445b09bdf6?auto=format&fit=crop&w=400&q=80" style="width:100%;border-radius:12px;"><p>Download Brosur</p></div>
+</div>
 </section>
 
-<section id="program" class="reveal">
+<!-- Program -->
+<section id="program">
 <h2><i class="fa-solid fa-graduation-cap"></i> Program Unggulan</h2>
 <div class="grid">
 <div class="card">Tahfidz Intensif</div>
@@ -190,7 +192,8 @@ footer p.address{margin-top:8px;font-weight:500;}
 </div>
 </section>
 
-<section id="statistik" class="reveal">
+<!-- Statistik -->
+<section id="statistik">
 <h2><i class="fa-solid fa-chart-simple"></i> Statistik</h2>
 <div class="grid">
 <div class="card"><div class="counter" data-target="1200">0</div>Siswa</div>
@@ -199,8 +202,9 @@ footer p.address{margin-top:8px;font-weight:500;}
 </div>
 </section>
 
-<section id="fasilitas" class="reveal">
-<h2><i class="fa-solid fa-building-columns"></i> Fasilitas Madrasah</h2>
+<!-- Fasilitas -->
+<section id="fasilitas">
+<h2><i class="fa-solid fa-building-columns"></i> Fasilitas</h2>
 <div class="grid">
 <div class="card">Smart Classroom</div>
 <div class="card">Asrama Modern</div>
@@ -208,8 +212,9 @@ footer p.address{margin-top:8px;font-weight:500;}
 </div>
 </section>
 
-<section id="eskul" class="reveal">
-<h2><i class="fa-solid fa-baseball"></i> Kegiatan Eskul</h2>
+<!-- Kegiatan Eskul -->
+<section id="eskul">
+<h2><i class="fa-solid fa-volleyball"></i> Kegiatan Eskul</h2>
 <div class="grid">
 <div class="card">Robotics</div>
 <div class="card">Panahan</div>
@@ -217,8 +222,9 @@ footer p.address{margin-top:8px;font-weight:500;}
 </div>
 </section>
 
-<section id="alumni" class="reveal">
-<h2><i class="fa-solid fa-user-graduate"></i> Testimoni Alumni</h2>
+<!-- Testimoni Alumni -->
+<section id="alumni">
+<h2><i class="fa-solid fa-users"></i> Testimoni Alumni</h2>
 <div class="slider">
 <div class="slide active">
 <img src="https://randomuser.me/api/portraits/men/32.jpg">
@@ -231,24 +237,24 @@ footer p.address{margin-top:8px;font-weight:500;}
 </div>
 </section>
 
-<section id="faq" class="reveal">
+<!-- FAQ -->
+<section id="faq">
 <h2><i class="fa-solid fa-circle-question"></i> FAQ</h2>
-<div class="faq-item">
-Apakah tersedia beasiswa?
+<div class="faq-item">Apakah tersedia beasiswa?
 <div class="faq-answer"><p>Ya, tersedia beasiswa prestasi & tahfidz.</p></div>
 </div>
-<div class="faq-item">
-Apakah ada asrama?
-<div class="faq-answer"><p>Ya, boarding modern terpisah putra & putri.</p></div>
+<div class="faq-item">Apakah ada asrama?
+<div class="faq-answer"><p>Ya, boarding modern terpisah putra-putri.</p></div>
 </div>
 </section>
 
-<section id="kontak" class="reveal">
+<!-- Kontak / Maps -->
+<section id="kontak">
 <h2><i class="fa-solid fa-location-dot"></i> Lokasi Madrasah</h2>
-<iframe src="https://maps.google.com/maps?q=jakarta&t=&z=13&ie=UTF8&iwloc=&output=embed"
-width="100%" height="300" style="border-radius:15px;border:none"></iframe>
+<iframe src="https://maps.google.com/maps?q=jakarta&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="300" style="border-radius:15px;border:none"></iframe>
 </section>
 
+<!-- Footer -->
 <footer>
 <h4>Ikuti Kami</h4>
 <div class="social">
@@ -280,11 +286,6 @@ let winScroll=document.documentElement.scrollTop;
 let height=document.documentElement.scrollHeight-document.documentElement.clientHeight;
 document.getElementById("progressBar").style.width=(winScroll/height)*100+"%";
 document.querySelector('.hero').style.backgroundPositionY = -(window.scrollY*0.25) + "px";
-/* Parallax Card */
-document.querySelectorAll('.card').forEach((card,i)=>{
-const speed = 0.05 + (i%3)*0.02;
-card.style.transform = `translateY(${window.scrollY*speed}px)`;
-});
 });
 
 /* Counter */
@@ -316,16 +317,16 @@ index=(index+1)%slides.length;
 slides[index].classList.add('active');
 },4000);
 
-/* Reveal Animation */
-function reveal(){
-document.querySelectorAll('.reveal').forEach((el,i)=>{
-if(el.getBoundingClientRect().top<window.innerHeight-100){
-setTimeout(()=>{el.classList.add('active');},i*150);
+/* Animate section items on scroll */
+function animateItems(){
+document.querySelectorAll('.grid .card').forEach((el,i)=>{
+if(el.getBoundingClientRect().top < window.innerHeight-100){
+el.classList.add('show');
 }
 });
 }
-window.addEventListener('scroll',reveal);
-reveal();
+window.addEventListener('scroll',animateItems);
+animateItems();
 </script>
 
 </body>
