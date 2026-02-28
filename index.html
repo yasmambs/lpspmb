@@ -6,6 +6,7 @@
 <title>SPMB Madrasah Modern</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 
 <style>
 :root{
@@ -18,18 +19,10 @@
 html{scroll-behavior:smooth}
 body{font-family:'Poppins',sans-serif;color:#222;background:#fff;overflow-x:hidden}
 
-section{
-  padding:100px 8%;
-  position:relative;
-}
+section{padding:100px 8%;position:relative}
+.container{max-width:1200px;margin:auto}
 
-.container{
-  max-width:1200px;
-  margin:auto;
-}
-
-/* ================= NAVBAR ================= */
-
+/* NAVBAR */
 .nav{
   position:fixed;
   width:100%;
@@ -40,145 +33,117 @@ section{
   align-items:center;
   padding:18px 8%;
   z-index:999;
-  transition:0.4s;
+  transition:.4s;
 }
 
 .nav.scrolled{
-  background:rgba(255,255,255,0.8);
+  background:rgba(255,255,255,0.85);
   backdrop-filter:blur(12px);
-  box-shadow:0 10px 25px rgba(0,0,0,0.05);
+  box-shadow:0 10px 25px rgba(0,0,0,.05);
 }
 
-.logo{
-  height:45px;
+.nav-left{
+  display:flex;
+  align-items:center;
+  gap:12px;
 }
+
+.logo{height:45px}
+
+.brand{
+  font-weight:600;
+  font-size:18px;
+  color:#fff;
+}
+
+.nav.scrolled .brand{color:#222}
 
 .nav-links{
   display:flex;
-  gap:30px;
+  gap:22px;
 }
 
 .nav-links a{
   text-decoration:none;
   color:#fff;
   font-weight:500;
-  transition:0.3s;
+  font-size:14px;
 }
 
-.nav.scrolled .nav-links a{
-  color:#222;
+.nav.scrolled .nav-links a{color:#222}
+
+.toggle{
+  display:none;
+  font-size:26px;
+  color:#fff;
+  cursor:pointer;
 }
 
-.nav-links a:hover{
-  color:var(--accent);
-}
+.nav.scrolled .toggle{color:#222}
 
-/* ================= HERO ================= */
-
+/* HERO */
 .hero{
   height:100vh;
   display:flex;
   align-items:center;
   color:#fff;
   background:
-  linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
+  linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
   url('https://images.unsplash.com/photo-1596495577886-d920f1fb7238?q=80&w=1920') center/cover fixed;
-  position:relative;
 }
 
-.hero-content{
-  max-width:700px;
-}
+.hero-content{max-width:700px}
 
-.hero h1{
-  font-size:48px;
-  line-height:1.2;
-  margin-bottom:20px;
-}
-
-.hero p{
-  margin-bottom:30px;
-  opacity:0.9;
-}
+.hero h1{font-size:48px;margin-bottom:20px}
+.hero p{margin-bottom:30px;opacity:.9}
 
 .btn{
   background:var(--accent);
   padding:14px 30px;
   color:#fff;
-  text-decoration:none;
   border-radius:40px;
-  transition:0.3s;
+  text-decoration:none;
 }
 
-.btn:hover{
-  background:#145a32;
-}
-
-/* subtle animated gradient */
-.hero::after{
-  content:"";
-  position:absolute;
-  width:100%;
-  height:100%;
-  background:linear-gradient(270deg,#0f3d2e33,#1e844933,#0f3d2e33);
-  background-size:400% 400%;
-  animation:gradientMove 12s ease infinite;
-  top:0;left:0;
-}
-
-@keyframes gradientMove{
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
-}
-
-/* ================= GRID ================= */
-
-.grid{
-  display:grid;
-  gap:30px;
-}
-
-.grid-3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr));}
-
+/* GRID */
+.grid{display:grid;gap:30px}
+.grid-3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
 .card{
   background:#fff;
   padding:30px;
   border-radius:20px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.05);
-  transition:0.4s;
+  box-shadow:0 10px 30px rgba(0,0,0,.05);
+  transition:.4s;
+}
+.card:hover{transform:translateY(-6px)}
+
+/* REVEAL */
+.reveal{opacity:.2;transform:translateY(40px);transition:1s}
+.reveal.active{opacity:1;transform:translateY(0)}
+
+/* COUNTER */
+.stat{text-align:center}
+.stat h2{font-size:40px;color:var(--primary)}
+
+/* FOOTER */
+footer{
+  background:var(--primary);
+  color:#fff;
+  padding:50px 8%;
 }
 
-.card:hover{
-  transform:translateY(-8px);
+.footer-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
 }
 
-/* ================= COUNTER ================= */
-
-.stat{
-  text-align:center;
+.social i{
+  font-size:20px;
+  margin-right:10px;
 }
 
-.stat h2{
-  font-size:40px;
-  color:var(--primary);
-}
-
-/* ================= REVEAL ================= */
-
-.reveal{
-  opacity:0;
-  transform:translateY(40px);
-  transition:1s;
-}
-
-.reveal.active{
-  opacity:1;
-  transform:translateY(0);
-}
-
-/* ================= WHATSAPP ================= */
-
+/* WA */
 .wa{
   position:fixed;
   bottom:25px;
@@ -192,145 +157,130 @@ section{
   align-items:center;
   color:#fff;
   font-size:26px;
-  box-shadow:0 10px 20px rgba(0,0,0,0.2);
+  box-shadow:0 10px 20px rgba(0,0,0,.2);
   z-index:999;
 }
 
-/* ================= FOOTER ================= */
-
-footer{
-  background:var(--primary);
-  color:#fff;
-  text-align:center;
-  padding:40px 10%;
+/* MOBILE */
+@media(max-width:900px){
+.nav-links{
+  position:absolute;
+  top:70px;
+  right:-100%;
+  background:#fff;
+  flex-direction:column;
+  width:250px;
+  padding:30px;
+  transition:.4s;
 }
-
-/* responsive */
-@media(max-width:768px){
-.hero h1{font-size:34px}
+.nav-links a{color:#222}
+.nav-links.active{right:0}
+.toggle{display:block}
 }
 </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
+<!-- NAV -->
 <div class="nav" id="navbar">
-  <img src="logo.png" class="logo">
-  <div class="nav-links">
+  <div class="nav-left">
+    <img src="logo.png" class="logo">
+    <div class="brand">Madrasah Modern</div>
+  </div>
+
+  <div class="nav-links" id="menu">
     <a href="#alur">Alur</a>
     <a href="#jadwal">Jadwal</a>
+    <a href="#pengumuman">Pengumuman</a>
+    <a href="#brosur">Brosur</a>
     <a href="#program">Program</a>
-    <a href="#kontak">Lokasi</a>
+    <a href="#statistik">Statistik</a>
+    <a href="#fasilitas">Fasilitas</a>
+    <a href="#eskul">Eskul</a>
+    <a href="#alumni">Alumni</a>
+    <a href="#lokasi">Lokasi</a>
   </div>
+
+  <div class="toggle" id="toggle"><i class="ri-menu-line"></i></div>
 </div>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-content">
     <h1>SPMB Madrasah Modern Berbasis Global</h1>
-    <p>Membangun generasi Qurani, berkarakter dan berwawasan internasional.</p>
+    <p>Mencetak generasi Qurani, unggul dan berwawasan internasional.</p>
     <a href="#alur" class="btn">Daftar Sekarang</a>
   </div>
 </section>
 
-<!-- ALUR -->
-<section id="alur">
-<div class="container">
-<h2 class="reveal">Alur Pendaftaran</h2>
-<div class="grid grid-3">
-<div class="card reveal">Isi Formulir Online</div>
-<div class="card reveal">Verifikasi Berkas</div>
-<div class="card reveal">Tes & Wawancara</div>
-</div>
+<!-- SECTION SESUAI URUTAN -->
+<section id="alur"><div class="container"><h2 class="reveal">Alur Pendaftaran</h2></div></section>
+<section id="jadwal" style="background:var(--soft);"><div class="container"><h2 class="reveal">Jadwal Pendaftaran</h2></div></section>
+<section id="pengumuman"><div class="container"><h2 class="reveal">Pengumuman</h2></div></section>
+<section id="brosur" style="background:var(--soft);"><div class="container"><h2 class="reveal">Brosur Lengkap</h2></div></section>
+<section id="program"><div class="container"><h2 class="reveal">Program Unggulan</h2></div></section>
+
+<section id="statistik" style="background:var(--soft);">
+<div class="container grid grid-3">
+<div class="stat reveal"><h2 data-target="1200">0</h2><p>Siswa</p></div>
+<div class="stat reveal"><h2 data-target="95">0</h2><p>Lulus PTN</p></div>
+<div class="stat reveal"><h2 data-target="40">0</h2><p>Guru</p></div>
 </div>
 </section>
 
-<!-- JADWAL -->
-<section id="jadwal" style="background:var(--soft);">
-<div class="container">
-<h2 class="reveal">Jadwal Pendaftaran</h2>
-<div class="card reveal">Gelombang 1: Jan - Mar</div>
-</div>
-</section>
-
-<!-- PROGRAM -->
-<section id="program">
-<div class="container">
-<h2 class="reveal">Program Unggulan</h2>
-<div class="grid grid-3">
-<div class="card reveal">Tahfidz Intensive</div>
-<div class="card reveal">STEM & Digital</div>
-<div class="card reveal">Leadership Global</div>
-</div>
-</div>
-</section>
-
-<!-- STATISTIK -->
-<section style="background:var(--soft);">
-<div class="container">
-<div class="grid grid-3">
-<div class="stat reveal">
-<h2 data-target="1200">0</h2>
-<p>Siswa Aktif</p>
-</div>
-<div class="stat reveal">
-<h2 data-target="95">0</h2>
-<p>Lulus PTN</p>
-</div>
-<div class="stat reveal">
-<h2 data-target="40">0</h2>
-<p>Tenaga Pendidik</p>
-</div>
-</div>
-</div>
-</section>
-
-<!-- MAP -->
-<section id="kontak">
-<div class="container">
-<h2 class="reveal">Lokasi Madrasah</h2>
-<div class="card reveal">
-Google Maps Embed Disini
-</div>
-</div>
-</section>
+<section id="fasilitas"><div class="container"><h2 class="reveal">Fasilitas Madrasah</h2></div></section>
+<section id="eskul" style="background:var(--soft);"><div class="container"><h2 class="reveal">Kegiatan Eskul</h2></div></section>
+<section id="alumni"><div class="container"><h2 class="reveal">Alumni / Testimoni</h2></div></section>
+<section id="lokasi" style="background:var(--soft);"><div class="container"><h2 class="reveal">Maps / Lokasi</h2></div></section>
 
 <footer>
-© 2026 Madrasah Modern | All Rights Reserved
+  <div class="footer-grid">
+    <div>
+      <h3>Madrasah Modern</h3>
+      <p>Jl. Pendidikan No. 123<br>Kota Anda</p>
+    </div>
+    <div>
+      <h4>Ikuti Kami</h4>
+      <div class="social">
+        <i class="ri-facebook-fill"></i>
+        <i class="ri-instagram-line"></i>
+        <i class="ri-youtube-fill"></i>
+      </div>
+    </div>
+  </div>
 </footer>
 
-<a href="#" class="wa">☎</a>
+<a href="#" class="wa"><i class="ri-whatsapp-line"></i></a>
 
 <script>
 // navbar glass
 window.addEventListener("scroll",()=>{
-  document.getElementById("navbar").classList.toggle("scrolled",window.scrollY>50);
+  navbar.classList.toggle("scrolled",window.scrollY>50);
 });
 
-// reveal animation
+// mobile toggle
+toggle.onclick=()=>menu.classList.toggle("active");
+
+// reveal
 const reveals=document.querySelectorAll(".reveal");
 window.addEventListener("scroll",()=>{
   reveals.forEach(r=>{
-    const top=r.getBoundingClientRect().top;
-    if(top<window.innerHeight-100){
+    if(r.getBoundingClientRect().top<window.innerHeight-100){
       r.classList.add("active");
     }
   });
 });
 
 // counter
-const counters=document.querySelectorAll("[data-target]");
-counters.forEach(counter=>{
+document.querySelectorAll("[data-target]").forEach(counter=>{
   const update=()=>{
-    const target=+counter.getAttribute("data-target");
+    const target=+counter.dataset.target;
     const count=+counter.innerText;
     const inc=target/100;
     if(count<target){
       counter.innerText=Math.ceil(count+inc);
       setTimeout(update,20);
-    }else{
-      counter.innerText=target;
-    }
+    }else{counter.innerText=target;}
   };
   update();
 });
