@@ -3,180 +3,142 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SPMB 2026 | Elite Islamic Boarding School</title>
+<title>SPMB 2026 | Modern International Islamic School</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 <script src="https://unpkg.com/feather-icons"></script>
 
 <style>
-
-/* ================= ROOT ================= */
 :root{
-  --primary:#14532D;
-  --accent:#C6A75E;
-  --bg:#F9FAF8;
-  --dark:#1F2937;
+  --primary:#166534;
+  --primary-soft:#ECFDF5;
+  --white:#FFFFFF;
+  --dark:#111827;
   --muted:#6B7280;
 }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{overflow-x:hidden;font-family:'Inter',sans-serif;background:#fff;color:var(--dark);}
 
-html,body{
-  overflow-x:hidden;
-  font-family:'Inter',sans-serif;
-  background:var(--bg);
-  color:var(--dark);
-}
+section{padding:100px 8%;}
+h1,h2,h3{font-weight:700;}
+p{color:var(--muted);line-height:1.6;}
 
-section{
-  padding:100px 8%;
-}
-
-h1,h2,h3{
-  font-weight:700;
-}
-
-p{
-  color:var(--muted);
-  line-height:1.6;
-}
-
-/* ================= NAVBAR ================= */
-
+/* NAVBAR */
 nav{
   position:fixed;
   top:0;
   width:100%;
-  background:white;
+  background:var(--white);
   display:flex;
   justify-content:space-between;
   align-items:center;
   padding:18px 8%;
-  box-shadow:0 2px 10px rgba(0,0,0,0.04);
+  box-shadow:0 2px 10px rgba(0,0,0,0.05);
   z-index:999;
 }
-
 .logo{
   font-weight:700;
   font-size:18px;
+  color:var(--primary);
   display:flex;
   align-items:center;
   gap:8px;
-  color:var(--primary);
 }
-
 .nav-links{
   display:flex;
   gap:28px;
   align-items:center;
 }
-
 .nav-links a{
   text-decoration:none;
   color:var(--dark);
   font-weight:500;
 }
-
 .login-btn{
   background:var(--primary);
   color:white;
   padding:8px 18px;
   border-radius:25px;
 }
+.menu-toggle{display:none;font-size:26px;cursor:pointer;}
 
-.menu-toggle{
-  display:none;
-  font-size:26px;
-  cursor:pointer;
-}
-
-/* ================= HERO ================= */
-
+/* HERO */
 .hero{
-  padding-top:140px;
+  padding-top:150px;
+  background:linear-gradient(135deg,var(--primary),#15803D);
+  color:white;
   text-align:center;
-  background:white;
 }
-
 .hero h1{
-  font-size:46px;
+  font-size:44px;
   max-width:800px;
   margin:0 auto 20px;
 }
-
 .hero p{
   max-width:600px;
   margin:0 auto 30px;
+  color:#E5E7EB;
 }
-
 .cta{
-  background:var(--primary);
-  color:white;
+  background:white;
+  color:var(--primary);
   padding:12px 28px;
   border-radius:30px;
   text-decoration:none;
   margin-right:15px;
-  display:inline-block;
+  font-weight:600;
   transition:0.3s;
 }
-
 .cta-outline{
-  border:2px solid var(--accent);
-  color:var(--accent);
+  border:2px solid white;
+  color:white;
   padding:10px 26px;
   border-radius:30px;
   text-decoration:none;
 }
+.cta:hover{transform:translateY(-3px);}
 
-.cta:hover{
-  transform:translateY(-3px);
+.mockup{
+  margin-top:60px;
+}
+.mockup img{
+  width:100%;
+  max-width:850px;
+  border-radius:20px;
+  box-shadow:0 25px 60px rgba(0,0,0,0.25);
 }
 
-/* ================= GRID ================= */
+/* GRID */
+.grid{display:grid;gap:30px;}
+.grid-3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr));}
 
-.grid{
-  display:grid;
-  gap:30px;
-}
-
-.grid-3{
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-}
-
-/* ================= CARD ================= */
-
+/* CARD */
 .card{
   background:white;
   padding:30px;
   border-radius:18px;
-  box-shadow:0 8px 30px rgba(0,0,0,0.04);
+  box-shadow:0 8px 30px rgba(0,0,0,0.05);
   transition:0.3s;
 }
+.card:hover{transform:translateY(-6px);}
 
-.card:hover{
-  transform:translateY(-6px);
+/* TIMELINE */
+.timeline{
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  justify-content:center;
+}
+.step{
+  background:var(--primary-soft);
+  padding:20px 30px;
+  border-radius:30px;
+  font-weight:600;
+  color:var(--primary);
 }
 
-/* ================= MOCKUP ================= */
-
-.mockup{
-  margin-top:50px;
-  text-align:center;
-}
-
-.mockup img{
-  width:100%;
-  max-width:800px;
-  border-radius:20px;
-  box-shadow:0 20px 60px rgba(0,0,0,0.08);
-}
-
-/* ================= MAP ================= */
-
+/* MAP */
 .map iframe{
   width:100%;
   height:350px;
@@ -185,14 +147,29 @@ nav{
   box-shadow:0 8px 30px rgba(0,0,0,0.05);
 }
 
-/* ================= FOOTER ================= */
-
-footer{
-  background:white;
-  padding:60px 8% 20px;
-  margin-top:100px;
+/* FAQ */
+.faq-item{
+  margin-bottom:15px;
+  cursor:pointer;
+}
+.faq-question{
+  background:var(--primary-soft);
+  padding:15px;
+  border-radius:12px;
+  font-weight:600;
+}
+.faq-answer{
+  display:none;
+  padding:10px 15px;
+  color:var(--muted);
 }
 
+/* FOOTER */
+footer{
+  background:var(--primary);
+  color:white;
+  padding:60px 8% 20px;
+}
 .footer-top{
   display:flex;
   justify-content:space-between;
@@ -200,34 +177,24 @@ footer{
   gap:20px;
   align-items:center;
 }
-
 .social-icons{
   display:flex;
   gap:16px;
 }
-
-.social-icons i{
-  color:var(--primary);
-  cursor:pointer;
-}
-
+.social-icons i{cursor:pointer;}
 .footer-address{
   font-size:14px;
-  color:var(--muted);
   text-align:right;
 }
-
 .footer-bottom{
   text-align:center;
   margin-top:30px;
-  border-top:1px solid #e5e7eb;
+  border-top:1px solid rgba(255,255,255,0.3);
   padding-top:15px;
   font-size:14px;
-  color:var(--muted);
 }
 
-/* ================= WA FLOAT ================= */
-
+/* WA */
 .wa-float{
   position:fixed;
   bottom:20px;
@@ -239,14 +206,9 @@ footer{
   box-shadow:0 10px 25px rgba(0,0,0,0.15);
 }
 
-/* ================= MOBILE ================= */
-
+/* MOBILE */
 @media(max-width:768px){
-
-  nav{
-    padding:18px 6%;
-  }
-
+  nav{padding:18px 6%;}
   .nav-links{
     position:absolute;
     top:70px;
@@ -258,45 +220,20 @@ footer{
     display:none;
     box-shadow:0 10px 25px rgba(0,0,0,0.08);
   }
-
-  .nav-links.show{
-    display:flex;
-  }
-
-  .menu-toggle{
-    display:block;
-  }
-
-  .hero h1{
-    font-size:30px;
-  }
-
-  section{
-    padding:80px 6%;
-  }
-
-  .footer-top{
-    flex-direction:column;
-    align-items:flex-start;
-  }
-
-  .footer-address{
-    text-align:left;
-  }
-
-  .footer-bottom{
-    text-align:center;
-  }
+  .nav-links.show{display:flex;}
+  .menu-toggle{display:block;}
+  section{padding:80px 6%;}
+  .hero h1{font-size:28px;}
+  .footer-top{flex-direction:column;align-items:flex-start;}
+  .footer-address{text-align:left;}
 }
-
 </style>
 </head>
 
 <body>
 
 <nav>
-  <div class="logo"><i data-feather="hexagon"></i> SPMB 2026</div>
-
+  <div class="logo"><i data-feather="globe"></i> SPMB 2026</div>
   <div class="nav-links" id="navMenu">
     <a href="#">Beranda</a>
     <a href="#">Statistik</a>
@@ -306,41 +243,41 @@ footer{
     <a href="#">Maps</a>
     <a href="#" class="login-btn">Login</a>
   </div>
-
   <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 </nav>
 
 <section class="hero">
   <h1>Penerimaan Peserta Didik Baru 2026</h1>
-  <p>Elite Islamic Boarding School berstandar internasional dengan kurikulum terintegrasi dan pembinaan karakter Qurani.</p>
+  <p>Modern International Islamic School dengan standar global dan pembinaan karakter Qurani.</p>
   <a href="#" class="cta">Daftar Sekarang</a>
   <a href="#" class="cta-outline">Lihat Program</a>
 
   <div class="mockup">
-    <img src="https://images.unsplash.com/photo-1581091870622-6c02f7b1d8c0" alt="Dashboard Preview">
+    <img src="https://images.unsplash.com/photo-1581092795360-9c1c1c1c1c1c" alt="Dashboard Preview">
   </div>
 </section>
 
 <section>
   <h2 style="text-align:center;margin-bottom:50px;">Statistik Sekolah</h2>
   <div class="grid grid-3">
-    <div class="card">1200+ Siswa Aktif</div>
-    <div class="card">50+ Prestasi Nasional</div>
-    <div class="card">95% Lulus PTN</div>
+    <div class="card"><h3>1200+</h3><p>Siswa Aktif</p></div>
+    <div class="card"><h3>50+</h3><p>Prestasi Nasional</p></div>
+    <div class="card"><h3>95%</h3><p>Lulus PTN</p></div>
   </div>
 </section>
 
-<section>
+<section style="background:var(--primary-soft);">
   <h2 style="text-align:center;margin-bottom:50px;">Alur Pendaftaran</h2>
-  <div class="grid grid-3">
-    <div class="card">1. Registrasi Online</div>
-    <div class="card">2. Upload Berkas</div>
-    <div class="card">3. Tes & Wawancara</div>
+  <div class="timeline">
+    <div class="step">Registrasi</div>
+    <div class="step">Upload Berkas</div>
+    <div class="step">Tes</div>
+    <div class="step">Pengumuman</div>
   </div>
 </section>
 
 <section>
-  <h2 style="text-align:center;margin-bottom:30px;">Jadwal Pendaftaran</h2>
+  <h2 style="text-align:center;margin-bottom:30px;">Jadwal</h2>
   <div class="card" style="max-width:600px;margin:0 auto;text-align:center;">
     Gelombang 1: Januari - Maret 2026
   </div>
@@ -349,6 +286,18 @@ footer{
 <section class="map">
   <h2 style="text-align:center;margin-bottom:30px;">Lokasi Sekolah</h2>
   <iframe src="https://maps.google.com/maps?q=jakarta&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+</section>
+
+<section>
+  <h2 style="text-align:center;margin-bottom:30px;">FAQ</h2>
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">Apakah tersedia asrama?</div>
+    <div class="faq-answer">Ya, tersedia fasilitas boarding lengkap.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">Apakah ada kurikulum internasional?</div>
+    <div class="faq-answer">Sekolah mengintegrasikan kurikulum nasional & internasional.</div>
+  </div>
 </section>
 
 <footer>
@@ -360,26 +309,26 @@ footer{
       <i data-feather="linkedin"></i>
       <i data-feather="twitter"></i>
     </div>
-
     <div class="footer-address">
       Jl. Pendidikan No.1<br>
       Kebonsakur, Indonesia<br>
       Telp: 0812-3456-7890
     </div>
   </div>
-
   <div class="footer-bottom">
     © 2026 SPMB Premium Desain
   </div>
 </footer>
 
-<a href="#" class="wa-float">
-  <i data-feather="message-circle"></i>
-</a>
+<a href="#" class="wa-float"><i data-feather="message-circle"></i></a>
 
 <script>
 function toggleMenu(){
   document.getElementById("navMenu").classList.toggle("show");
+}
+function toggleFAQ(el){
+  const answer = el.nextElementSibling;
+  answer.style.display = answer.style.display === "block" ? "none" : "block";
 }
 feather.replace();
 </script>
