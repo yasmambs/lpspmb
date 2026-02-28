@@ -105,4 +105,234 @@ background-image: linear-gradient(120deg, rgba(6,95,70,0.35), rgba(198,167,94,0.
 
 /* Dot Nav */
 .dot-nav{position:fixed;right:15px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:12px;z-index:999;}
-.dot-nav a{width:10px;height:10px;background:#cbd5
+.dot-nav a{width:10px;height:10px;background:#cbd5e1;border-radius:50%;transition:.3s;}
+.dot-nav a:hover{background:var(--emerald);transform:scale(1.4);}
+
+/* Footer */
+footer{background:#fff;color:var(--text-dark);padding:50px 8% 30px;text-align:center;position:relative;}
+footer h4{margin-bottom:15px;font-weight:700;}
+.social{display:flex;justify-content:center;gap:15px;margin:10px 0;}
+.social i{font-size:22px;color:var(--emerald);transition:.3s;}
+.social i:hover{color:var(--gold);}
+footer p.address{margin-top:8px;font-weight:500;}
+.footer-divider{margin:20px auto;width:100%;height:1px;background:#e2e8f0;}
+.copyright{font-size:14px;color:#94a3b8;}
+
+/* WhatsApp */
+.wa{position:fixed;bottom:20px;right:20px;background:#25D366;width:55px;height:55px;display:flex;align-items:center;justify-content:center;border-radius:50%;color:white;font-size:24px;box-shadow:0 12px 30px rgba(0,0,0,.25);transition:.3s;}
+.wa:hover{transform:scale(1.1)}
+
+/* Responsive Mobile Dropdown Bawah */
+@media(max-width:768px){
+.nav-links{display:none;flex-direction:column;background:white;position:absolute;top:70px;right:8%;padding:15px 10px;border-radius:12px;box-shadow:0 15px 40px rgba(0,0,0,.1);}
+.nav-links.active{display:flex;}
+.toggle{display:block;}
+.hero h1{font-size:28px;}
+.hero-buttons{flex-direction:row;gap:12px;justify-content:center;}
+.btn-primary,.btn-outline{width:140px;}
+}
+</style>
+</head>
+<body>
+
+<div id="progressBar"></div>
+
+<nav class="navbar" id="navbar">
+<div class="logo"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png">Modern Islamic School</div>
+<div class="nav-links" id="navLinks">
+<a href="#"><i class="fa-solid fa-house"></i>Beranda</a>
+<a href="#program"><i class="fa-solid fa-graduation-cap"></i>Program</a>
+<a href="#kontak"><i class="fa-solid fa-location-dot"></i>Kontak</a>
+<a href="#faq"><i class="fa-solid fa-circle-question"></i>FAQ</a>
+<a href="#"><i class="fa-solid fa-right-to-bracket"></i>Login</a>
+</div>
+<div class="toggle" id="toggle"><i class="fa fa-bars"></i></div>
+</nav>
+
+<section class="hero">
+<div>
+<h1>Elite Modern Islamic Education</h1>
+<p>Menggabungkan nilai Islam & standar internasional</p>
+<div class="hero-buttons">
+<button class="btn-primary">Daftar Sekarang</button>
+<a href="login-siswa.html" class="btn-outline">Login</a>
+</div>
+</div>
+</section>
+
+<section id="alur" class="reveal">
+<h2><i class="fa-solid fa-list-ol"></i> Alur Pendaftaran</h2>
+<div class="grid">
+<div class="card">Isi Form Online</div>
+<div class="card">Tes Seleksi</div>
+<div class="card">Wawancara</div>
+<div class="card">Pengumuman</div>
+</div>
+</section>
+
+<section id="jadwal" class="reveal">
+<h2><i class="fa-solid fa-calendar-days"></i> Jadwal Pendaftaran</h2>
+<div class="grid">
+<div class="card">Jan - Mar 2026</div>
+<div class="card">Apr - Mei 2026</div>
+</div>
+</section>
+
+<section id="pengumuman" class="reveal">
+<h2><i class="fa-solid fa-bullhorn"></i> Pengumuman</h2>
+<div class="card">Hasil seleksi diumumkan via website & email resmi.</div>
+</section>
+
+<section id="brosur" class="reveal">
+<h2><i class="fa-solid fa-book"></i> Brosur Lengkap</h2>
+<div class="grid">
+<div class="card"><img src="https://images.unsplash.com/photo-1607013251379-e6eecfffe234?q=80&w=400" style="width:100%;border-radius:15px;"></div>
+</div>
+</section>
+
+<section id="program" class="reveal">
+<h2><i class="fa-solid fa-graduation-cap"></i> Program Unggulan</h2>
+<div class="grid">
+<div class="card">Tahfidz Intensif</div>
+<div class="card">Cambridge Curriculum</div>
+<div class="card">Digital Islamic School</div>
+</div>
+</section>
+
+<section id="statistik" class="reveal">
+<h2><i class="fa-solid fa-chart-simple"></i> Statistik</h2>
+<div class="grid">
+<div class="card"><div class="counter" data-target="1200">0</div>Siswa</div>
+<div class="card"><div class="counter" data-target="95">0</div>% Kelulusan</div>
+<div class="card"><div class="counter" data-target="150">0</div>Guru</div>
+</div>
+</section>
+
+<section class="reveal">
+<h2><i class="fa-solid fa-building-columns"></i> Fasilitas</h2>
+<div class="grid">
+<div class="card">Smart Classroom</div>
+<div class="card">Asrama Modern</div>
+<div class="card">Masjid Representatif</div>
+</div>
+</section>
+
+<section class="reveal">
+<h2><i class="fa-solid fa-volleyball"></i> Kegiatan Eskul</h2>
+<div class="grid">
+<div class="card">Robotics</div>
+<div class="card">Panahan</div>
+<div class="card">English Club</div>
+</div>
+</section>
+
+<section class="reveal">
+<h2><i class="fa-solid fa-user-group"></i> Testimoni Alumni</h2>
+<div class="slider">
+<div class="slide active">
+<img src="https://randomuser.me/api/portraits/men/32.jpg">
+<p>"Sekolah ini membentuk karakter & akademik saya."</p>
+</div>
+<div class="slide">
+<img src="https://randomuser.me/api/portraits/women/44.jpg">
+<p>"Lingkungan islami & internasional."</p>
+</div>
+</div>
+</section>
+
+<section id="faq" class="reveal">
+<h2><i class="fa-solid fa-circle-question"></i> FAQ</h2>
+<div class="faq-item">
+Apakah tersedia beasiswa?
+<div class="faq-answer">
+<p>Ya, tersedia beasiswa prestasi & tahfidz.</p>
+</div>
+</div>
+<div class="faq-item">
+Apakah ada asrama?
+<div class="faq-answer">
+<p>Ya, boarding modern terpisah putra-putri.</p>
+</div>
+</div>
+</section>
+
+<section id="kontak" class="reveal">
+<h2><i class="fa-solid fa-location-dot"></i> Lokasi Madrasah</h2>
+<iframe src="https://maps.google.com/maps?q=jakarta&t=&z=13&ie=UTF8&iwloc=&output=embed"
+width="100%" height="300"
+style="border-radius:15px;border:none"></iframe>
+</section>
+
+<footer>
+<h4>Ikuti Kami</h4>
+<div class="social">
+<i class="fab fa-youtube"></i>
+<i class="fab fa-facebook"></i>
+<i class="fab fa-instagram"></i>
+<i class="fab fa-tiktok"></i>
+<i class="fab fa-linkedin"></i>
+</div>
+<p class="address">Jl. Pendidikan No.1, Indonesia</p>
+<div class="footer-divider"></div>
+<div class="copyright">© 2026 Modern International Islamic School. All rights reserved.</div>
+</footer>
+
+<div class="dot-nav">
+<a href="#alur"></a><a href="#jadwal"></a><a href="#pengumuman"></a><a href="#brosur"></a><a href="#program"></a><a href="#statistik"></a><a href="#kontak"></a>
+</div>
+
+<a href="#" class="wa"><i class="fab fa-whatsapp"></i></a>
+
+<script>
+const toggle=document.getElementById('toggle');
+const navLinks=document.getElementById('navLinks');
+toggle.onclick=()=>navLinks.classList.toggle('active');
+
+window.addEventListener('scroll',()=>{
+document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);
+let winScroll=document.documentElement.scrollTop;
+let height=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+document.getElementById("progressBar").style.width=(winScroll/height)*100+"%";
+
+/* Parallax Hero */
+document.querySelector('.hero').style.backgroundPositionY = -(window.scrollY*0.25) + "px";
+
+/* Parallax Card */
+document.querySelectorAll('.card').forEach((card,i)=>{
+const speed = 0.03 + (i%3)*0.02;
+card.style.transform = `translateY(${window.scrollY*speed}px)`;
+});
+});
+
+/* Counter */
+document.querySelectorAll('.counter').forEach(counter=>{
+let update=()=>{
+let target=+counter.dataset.target;
+let count=+counter.innerText;
+let inc=target/200;
+if(count<target){counter.innerText=Math.ceil(count+inc);setTimeout(update,20);}
+else counter.innerText=target;
+}
+update();
+});
+
+/* FAQ Accordion */
+document.querySelectorAll('.faq-item').forEach(item=>{
+item.addEventListener('click',()=>{
+let ans=item.querySelector('.faq-answer');
+ans.style.maxHeight=ans.style.maxHeight?null:ans.scrollHeight+'px';
+});
+});
+
+/* Slider */
+let slides=document.querySelectorAll('.slide');
+let index=0;
+setInterval(()=>{
+slides[index].classList.remove('active');
+index=(index+1)%slides.length;
+slides[index].classList.add('active');
+},4000);
+</script>
+
+</body>
+</html>
