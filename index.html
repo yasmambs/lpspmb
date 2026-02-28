@@ -37,12 +37,17 @@ body{font-family:'Inter',sans-serif;background:#fff;color:var(--text-dark);overf
 .nav-links a:hover::after{width:100%;}
 .toggle{display:none;font-size:24px;cursor:pointer;color:var(--emerald);}
 
-/* Hero with Gulf style gradient */
+/* Hero with animated gradient */
 .hero{
 height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;color:white;padding:0 8%;position:relative;overflow:hidden;
-background:linear-gradient(rgba(6,95,70,.65),rgba(198,167,94,.65)), url('https://images.unsplash.com/photo-1607013251379-e6eecfffe234?q=80&w=1400') center/cover no-repeat;
-background-attachment: fixed;
-background-size: cover;
+background:linear-gradient(rgba(6,95,70,0.6),rgba(198,167,94,0.4)), url('https://images.unsplash.com/photo-1607013251379-e6eecfffe234?q=80&w=1400') center/cover no-repeat;
+background-attachment: fixed;background-size: cover;
+animation: gradientShift 25s ease infinite;
+}
+@keyframes gradientShift{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
 }
 .hero h1{font-size:56px;font-weight:800;margin-bottom:20px;text-shadow:0 2px 8px rgba(0,0,0,.5);}
 .hero p{position:relative; z-index:1;font-size:20px;text-shadow:0 1px 6px rgba(0,0,0,.5);}
@@ -53,7 +58,7 @@ background-size: cover;
 .btn-outline{border:2px solid white;color:white;}
 .btn-outline:hover{background:white;color:var(--emerald);}
 
-/* Sections with glassmorphism & subtle pattern */
+/* Sections with subtle SVG pattern & glassmorphism */
 section{
 padding:90px 8%;
 position:relative;
@@ -73,21 +78,8 @@ p{color:var(--text-light);line-height:1.8;}
 
 /* Grid */
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px;}
-.card{
-background:var(--glass-bg);
-backdrop-filter:var(--glass-blur);
-padding:25px;
-border-radius:20px;
-box-shadow:0 20px 60px rgba(0,0,0,.05);
-border:1px solid #f1f5f9;
-transition:.4s, transform .6s ease-out, background .6s;
-background-image: linear-gradient(120deg, rgba(6,95,70,0.15), rgba(198,167,94,0.15));
-}
-.card:hover{
-transform:translateY(-8px) scale(1.03);
-box-shadow:0 25px 70px rgba(6,95,70,.2);
-background-image: linear-gradient(120deg, rgba(6,95,70,0.35), rgba(198,167,94,0.35));
-}
+.card{background:var(--glass-bg);backdrop-filter:var(--glass-blur);padding:25px;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,.05);border:1px solid #f1f5f9;transition:.4s, transform .6s ease-out;background-image: linear-gradient(120deg, rgba(6,95,70,0.15), rgba(198,167,94,0.15));will-change: transform;}
+.card:hover{transform:translateY(-8px) scale(1.03);box-shadow:0 25px 70px rgba(6,95,70,.2);background-image: linear-gradient(120deg, rgba(6,95,70,0.35), rgba(198,167,94,0.35));}
 
 /* Counter */
 .counter{font-size:48px;font-weight:800;color:var(--emerald);transition:all .4s ease;}
@@ -173,20 +165,21 @@ footer p.address{margin-top:8px;font-weight:500;}
 <section id="jadwal" class="reveal">
 <h2><i class="fa-solid fa-calendar-days"></i> Jadwal Pendaftaran</h2>
 <div class="grid">
-<div class="card">Jan - Mar 2026</div>
-<div class="card">Apr - Mei 2026</div>
+<div class="card">Januari - Mei 2026</div>
 </div>
 </section>
 
 <section id="pengumuman" class="reveal">
 <h2><i class="fa-solid fa-bullhorn"></i> Pengumuman</h2>
-<div class="card">Hasil seleksi diumumkan via website & email resmi.</div>
+<div class="grid">
+<div class="card">Hasil seleksi diumumkan di website & email</div>
+</div>
 </section>
 
 <section id="brosur" class="reveal">
-<h2><i class="fa-solid fa-book"></i> Brosur Lengkap</h2>
+<h2><i class="fa-solid fa-file-pdf"></i> Brosur Lengkap</h2>
 <div class="grid">
-<div class="card"><img src="https://images.unsplash.com/photo-1607013251379-e6eecfffe234?q=80&w=400" style="width:100%;border-radius:15px;"></div>
+<div class="card"><img src="https://via.placeholder.com/300x400.png?text=Brosur+Sekolah" alt="Brosur" style="width:100%;border-radius:15px;"></div>
 </div>
 </section>
 
@@ -208,8 +201,8 @@ footer p.address{margin-top:8px;font-weight:500;}
 </div>
 </section>
 
-<section class="reveal">
-<h2><i class="fa-solid fa-building-columns"></i> Fasilitas</h2>
+<section id="fasilitas" class="reveal">
+<h2><i class="fa-solid fa-building"></i> Fasilitas Madrasah</h2>
 <div class="grid">
 <div class="card">Smart Classroom</div>
 <div class="card">Asrama Modern</div>
@@ -217,8 +210,8 @@ footer p.address{margin-top:8px;font-weight:500;}
 </div>
 </section>
 
-<section class="reveal">
-<h2><i class="fa-solid fa-volleyball"></i> Kegiatan Eskul</h2>
+<section id="eskul" class="reveal">
+<h2><i class="fa-solid fa-basketball"></i> Kegiatan Eskul</h2>
 <div class="grid">
 <div class="card">Robotics</div>
 <div class="card">Panahan</div>
@@ -226,8 +219,8 @@ footer p.address{margin-top:8px;font-weight:500;}
 </div>
 </section>
 
-<section class="reveal">
-<h2><i class="fa-solid fa-user-group"></i> Testimoni Alumni</h2>
+<section id="testimoni" class="reveal">
+<h2><i class="fa-solid fa-quote-left"></i> Testimoni Alumni</h2>
 <div class="slider">
 <div class="slide active">
 <img src="https://randomuser.me/api/portraits/men/32.jpg">
@@ -251,7 +244,7 @@ Apakah tersedia beasiswa?
 <div class="faq-item">
 Apakah ada asrama?
 <div class="faq-answer">
-<p>Ya, boarding modern terpisah putra-putri.</p>
+<p>Ya, boarding modern terpisah putra & putri.</p>
 </div>
 </div>
 </section>
@@ -293,15 +286,7 @@ document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50)
 let winScroll=document.documentElement.scrollTop;
 let height=document.documentElement.scrollHeight-document.documentElement.clientHeight;
 document.getElementById("progressBar").style.width=(winScroll/height)*100+"%";
-
-/* Parallax Hero */
 document.querySelector('.hero').style.backgroundPositionY = -(window.scrollY*0.25) + "px";
-
-/* Parallax Card */
-document.querySelectorAll('.card').forEach((card,i)=>{
-const speed = 0.03 + (i%3)*0.02;
-card.style.transform = `translateY(${window.scrollY*speed}px)`;
-});
 });
 
 /* Counter */
@@ -332,7 +317,17 @@ slides[index].classList.remove('active');
 index=(index+1)%slides.length;
 slides[index].classList.add('active');
 },4000);
-</script>
 
+/* Reveal Animation Section */
+function reveal(){
+document.querySelectorAll('.reveal').forEach(el=>{
+if(el.getBoundingClientRect().top<window.innerHeight-100){
+el.classList.add('active');
+}
+});
+}
+window.addEventListener('scroll',reveal);
+reveal();
+</script>
 </body>
 </html>
