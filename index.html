@@ -18,10 +18,22 @@
 html{scroll-behavior:smooth}
 body{font-family:'Poppins',sans-serif;color:#222;background:#fff}
 
-section{padding:100px 8%}
+section{padding:110px 8%}
 .container{max-width:1200px;margin:auto}
-h2{margin-bottom:30px;color:var(--primary)}
+h2{margin-bottom:40px;color:var(--primary);font-size:28px}
 
+.grid{display:grid;gap:30px}
+.grid-3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.card{
+  background:#fff;
+  padding:30px;
+  border-radius:18px;
+  box-shadow:0 15px 40px rgba(0,0,0,.05);
+  transition:.4s;
+}
+.card:hover{transform:translateY(-6px)}
+
+/* NAVBAR */
 .nav{
   position:fixed;
   width:100%;
@@ -34,18 +46,48 @@ h2{margin-bottom:30px;color:var(--primary)}
   transition:.4s;
 }
 .nav.scrolled{
-  background:rgba(255,255,255,.9);
+  background:rgba(255,255,255,.92);
   backdrop-filter:blur(10px);
   box-shadow:0 5px 20px rgba(0,0,0,.05);
 }
-.logo{height:45px}
 .brand{color:#fff;font-weight:600}
 .nav.scrolled .brand{color:#222}
 
-.nav-links{display:flex;gap:25px}
-.nav-links a{text-decoration:none;color:#fff;font-weight:500}
+.nav-links{
+  display:flex;
+  gap:25px;
+}
+.nav-links a{
+  text-decoration:none;
+  color:#fff;
+  font-weight:500;
+}
 .nav.scrolled .nav-links a{color:#222}
 
+/* MEGA MENU */
+.mega{
+  position:absolute;
+  top:70px;
+  background:#fff;
+  padding:30px;
+  border-radius:15px;
+  display:none;
+  grid-template-columns:repeat(3,200px);
+  gap:20px;
+  box-shadow:0 20px 40px rgba(0,0,0,.1);
+}
+.program-menu:hover .mega{display:grid}
+
+/* TOGGLE */
+.toggle{
+  display:none;
+  font-size:26px;
+  color:#fff;
+  cursor:pointer;
+}
+.nav.scrolled .toggle{color:#222}
+
+/* HERO */
 .hero{
   height:100vh;
   display:flex;
@@ -55,153 +97,107 @@ h2{margin-bottom:30px;color:var(--primary)}
   linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
   url('https://images.unsplash.com/photo-1596495577886-d920f1fb7238?q=80&w=1920') center/cover fixed;
 }
-.hero-content{max-width:700px}
-.hero h1{font-size:46px;margin-bottom:20px}
-.btn{
-  background:var(--accent);
-  padding:14px 30px;
-  border-radius:40px;
-  color:#fff;
-  text-decoration:none;
-}
+.hero h1{font-size:48px;margin-bottom:20px}
 
-.grid{display:grid;gap:30px}
-.grid-3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
-.card{
-  background:#fff;
-  padding:25px;
-  border-radius:15px;
-  box-shadow:0 10px 30px rgba(0,0,0,.05);
-}
-
+/* COUNTER */
 .stat{text-align:center}
-.stat h2{font-size:38px;color:var(--primary)}
+.stat h2{font-size:42px;color:var(--primary)}
 
-footer{
-  background:var(--primary);
-  color:#fff;
-  padding:60px 8% 30px;
-}
-.footer-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:30px;
-}
-.copyright{
+/* TESTIMONI SLIDER */
+.slider{position:relative;overflow:hidden}
+.slides{display:flex;transition:.5s}
+.slide{
+  min-width:100%;
   text-align:center;
-  margin-top:40px;
-  font-size:14px;
-  opacity:.8;
+}
+.slide img{
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  margin-bottom:15px;
+}
+
+/* FAQ ACCORDION */
+.faq-item{
+  margin-bottom:15px;
+  border-radius:12px;
+  overflow:hidden;
+  border:1px solid #ddd;
+}
+.faq-question{
+  padding:15px;
+  cursor:pointer;
+  background:#fff;
+}
+.faq-answer{
+  max-height:0;
+  overflow:hidden;
+  transition:.4s;
+  padding:0 15px;
+}
+.faq-item.active .faq-answer{
+  max-height:200px;
+  padding:15px;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+.nav-links{
+  position:absolute;
+  right:-100%;
+  top:70px;
+  flex-direction:column;
+  background:#fff;
+  width:250px;
+  padding:25px;
+  transition:.4s;
+}
+.nav-links a{color:#222}
+.nav-links.active{right:0}
+.toggle{display:block}
 }
 </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
+<!-- NAV -->
 <div class="nav" id="navbar">
-  <div style="display:flex;align-items:center;gap:12px;">
-    <img src="logo.png" class="logo">
-    <div class="brand">Madrasah Modern</div>
-  </div>
-  <div class="nav-links">
+  <div class="brand">Madrasah Modern</div>
+
+  <div class="nav-links" id="menu">
     <a href="#">Beranda</a>
-    <a href="#program">Program</a>
+    <div class="program-menu" style="position:relative;">
+      <a href="#program">Program</a>
+      <div class="mega">
+        <div>Tahfidz</div>
+        <div>STEM</div>
+        <div>Leadership</div>
+        <div>Bahasa Arab</div>
+        <div>Digital Class</div>
+        <div>Entrepreneur</div>
+      </div>
+    </div>
     <a href="#lokasi">Kontak</a>
     <a href="#faq">FAQ</a>
     <a href="#">Login</a>
   </div>
+
+  <div class="toggle" id="toggle"><i class="ri-menu-line"></i></div>
 </div>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-content">
-    <h1>SPMB Madrasah Modern Berbasis Global</h1>
-    <p>Mencetak generasi Qurani, unggul, dan berkarakter internasional.</p>
-    <a href="#alur" class="btn">Lihat Alur Pendaftaran</a>
-  </div>
-</section>
-
-<!-- ALUR -->
-<section id="alur">
 <div class="container">
-<h2>Alur Pendaftaran</h2>
-<div class="grid grid-3">
-<div class="card">1. Isi formulir online</div>
-<div class="card">2. Upload berkas & verifikasi</div>
-<div class="card">3. Tes seleksi & wawancara</div>
-</div>
-</div>
-</section>
-
-<!-- JADWAL -->
-<section style="background:var(--soft);">
-<div class="container">
-<h2>Jadwal Pendaftaran</h2>
-<div class="card">
-Gelombang 1: Januari – Maret <br>
-Gelombang 2: April – Juni
-</div>
-</div>
-</section>
-
-<!-- PENGUMUMAN -->
-<section>
-<div class="container">
-<h2>Pengumuman</h2>
-<div class="card">Hasil seleksi diumumkan melalui website dan email resmi.</div>
-</div>
-</section>
-
-<!-- BROSUR -->
-<section style="background:var(--soft);">
-<div class="container">
-<h2>Brosur Lengkap</h2>
-<div class="card">Download brosur lengkap dalam format PDF untuk informasi detail kurikulum dan fasilitas.</div>
-</div>
-</section>
-
-<!-- PROGRAM -->
-<section id="program">
-<div class="container">
-<h2>Program Unggulan</h2>
-<div class="grid grid-3">
-<div class="card">Tahfidz Intensive</div>
-<div class="card">STEM & Digital Learning</div>
-<div class="card">Leadership & Character Building</div>
-</div>
+<h1>SPMB Madrasah Modern Global</h1>
 </div>
 </section>
 
 <!-- STATISTIK -->
 <section style="background:var(--soft);">
 <div class="container grid grid-3">
-<div class="stat"><h2>1200+</h2><p>Siswa Aktif</p></div>
-<div class="stat"><h2>95%</h2><p>Lulus PTN</p></div>
-<div class="stat"><h2>40</h2><p>Tenaga Pendidik</p></div>
-</div>
-</section>
-
-<!-- FASILITAS -->
-<section>
-<div class="container">
-<h2>Fasilitas Madrasah</h2>
-<div class="grid grid-3">
-<div class="card">Laboratorium Sains</div>
-<div class="card">Perpustakaan Digital</div>
-<div class="card">Masjid & Asrama</div>
-</div>
-</div>
-</section>
-
-<!-- ESKUL -->
-<section style="background:var(--soft);">
-<div class="container">
-<h2>Kegiatan Eskul</h2>
-<div class="grid grid-3">
-<div class="card">Pramuka</div>
-<div class="card">Robotik</div>
-<div class="card">Tahfidz Club</div>
-</div>
+<div class="stat"><h2 data-target="1200">0</h2><p>Siswa Aktif</p></div>
+<div class="stat"><h2 data-target="95">0</h2><p>Lulus PTN</p></div>
+<div class="stat"><h2 data-target="40">0</h2><p>Guru</p></div>
 </div>
 </section>
 
@@ -209,50 +205,71 @@ Gelombang 2: April – Juni
 <section>
 <div class="container">
 <h2>Testimoni Alumni</h2>
-<div class="card">
-“Madrasah ini membentuk karakter dan membantu saya diterima di PTN favorit.” – Ahmad, Alumni 2024
+<div class="slider">
+<div class="slides" id="slides">
+<div class="slide">
+<img src="https://randomuser.me/api/portraits/men/32.jpg">
+<p>"Madrasah ini membentuk karakter saya."</p>
+</div>
+<div class="slide">
+<img src="https://randomuser.me/api/portraits/women/44.jpg">
+<p>"Lingkungan islami & akademik kuat."</p>
 </div>
 </div>
-</section>
-
-<!-- LOKASI -->
-<section id="lokasi" style="background:var(--soft);">
-<div class="container">
-<h2>Lokasi Madrasah</h2>
-<div class="card">Embed Google Maps di sini.</div>
+</div>
 </div>
 </section>
 
 <!-- FAQ -->
-<section id="faq">
+<section id="faq" style="background:var(--soft);">
 <div class="container">
 <h2>FAQ</h2>
-<div class="card"><strong>Apakah tersedia beasiswa?</strong><br>Ya, tersedia beasiswa prestasi dan tahfidz.</div><br>
-<div class="card"><strong>Apakah ada asrama?</strong><br>Tersedia asrama putra dan putri.</div>
+<div class="faq-item">
+<div class="faq-question">Apakah ada beasiswa?</div>
+<div class="faq-answer">Ya, tersedia beasiswa prestasi dan tahfidz.</div>
+</div>
+<div class="faq-item">
+<div class="faq-question">Apakah tersedia asrama?</div>
+<div class="faq-answer">Tersedia asrama putra dan putri.</div>
+</div>
 </div>
 </section>
 
-<footer>
-<div class="footer-grid">
-<div>
-<h3>Madrasah Modern</h3>
-<p>Jl. Pendidikan No. 123<br>Kota Anda</p>
-</div>
-<div>
-<h4>Ikuti Kami</h4>
-<i class="ri-facebook-fill"></i>
-<i class="ri-instagram-line"></i>
-<i class="ri-youtube-fill"></i>
-</div>
-</div>
-<div class="copyright">
-© 2026 Madrasah Modern. All Rights Reserved.
-</div>
-</footer>
-
 <script>
+// navbar scroll
 window.addEventListener("scroll",()=>{
   navbar.classList.toggle("scrolled",window.scrollY>50);
+});
+
+// toggle
+toggle.onclick=()=>menu.classList.toggle("active");
+
+// counter animasi
+document.querySelectorAll("[data-target]").forEach(counter=>{
+  const update=()=>{
+    const target=+counter.dataset.target;
+    const count=+counter.innerText;
+    const inc=target/100;
+    if(count<target){
+      counter.innerText=Math.ceil(count+inc);
+      setTimeout(update,20);
+    }else{counter.innerText=target}
+  };
+  update();
+});
+
+// slider
+let index=0;
+setInterval(()=>{
+  index=(index+1)%2;
+  slides.style.transform="translateX(-"+index*100+"%)";
+},4000);
+
+// accordion
+document.querySelectorAll(".faq-question").forEach(q=>{
+  q.onclick=()=>{
+    q.parentElement.classList.toggle("active");
+  };
 });
 </script>
 
