@@ -3,394 +3,333 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SPMB 2026 | Modern International Islamic School</title>
+<title>SPMB Madrasah Modern</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-<script src="https://unpkg.com/feather-icons"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --primary:#166534;
-  --primary-soft:#ECFDF5;
-  --white:#FFFFFF;
-  --dark:#111827;
-  --muted:#6B7280;
+  --primary:#0f3d2e;
+  --accent:#1e8449;
+  --soft:#f4f7f6;
 }
 
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{
-  overflow-x:hidden;
-  font-family:'Inter',sans-serif;
-  background:#fff;
-  color:var(--dark);
-}
-
-/* SUBTLE ISLAMIC PATTERN */
-body::before{
-  content:"";
-  position:fixed;
-  width:600px;
-  height:600px;
-  top:-200px;
-  right:-200px;
-  background:url('data:image/svg+xml;utf8,\
-  <svg xmlns="http://www.w3.org/2000/svg" width="400" height="400">\
-  <circle cx="200" cy="200" r="180" stroke="%23166534" stroke-width="2" fill="none" opacity="0.05"/>\
-  </svg>');
-  background-repeat:no-repeat;
-  pointer-events:none;
-  z-index:-1;
-}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;color:#222;background:#fff;overflow-x:hidden}
 
 section{
   padding:100px 8%;
-  opacity:0;
-  transform:translateY(40px);
-  transition:all 0.8s ease;
-}
-section.show{
-  opacity:1;
-  transform:translateY(0);
+  position:relative;
 }
 
-h1,h2,h3{font-weight:700;}
-p{color:var(--muted);line-height:1.6;}
+.container{
+  max-width:1200px;
+  margin:auto;
+}
 
-/* NAVBAR */
-nav{
+/* ================= NAVBAR ================= */
+
+.nav{
   position:fixed;
-  top:0;
   width:100%;
-  background:white;
+  top:0;
+  left:0;
   display:flex;
   justify-content:space-between;
   align-items:center;
   padding:18px 8%;
-  box-shadow:0 2px 10px rgba(0,0,0,0.05);
   z-index:999;
+  transition:0.4s;
 }
+
+.nav.scrolled{
+  background:rgba(255,255,255,0.8);
+  backdrop-filter:blur(12px);
+  box-shadow:0 10px 25px rgba(0,0,0,0.05);
+}
+
 .logo{
-  font-weight:700;
-  font-size:18px;
-  color:var(--primary);
+  height:45px;
 }
+
 .nav-links{
   display:flex;
-  gap:28px;
-  align-items:center;
+  gap:30px;
 }
+
 .nav-links a{
   text-decoration:none;
-  color:var(--dark);
+  color:#fff;
   font-weight:500;
-}
-.nav-links a.active{
-  color:var(--primary);
-  font-weight:600;
-}
-.login-btn{
-  background:var(--primary);
-  color:white;
-  padding:8px 18px;
-  border-radius:25px;
-}
-.menu-toggle{display:none;font-size:26px;cursor:pointer;}
-
-/* HERO */
-.hero{
-  padding-top:150px;
-  background:linear-gradient(135deg,var(--primary),#15803D);
-  color:white;
-  text-align:center;
-  opacity:1;
-  transform:none;
-}
-.hero h1{
-  font-size:44px;
-  max-width:800px;
-  margin:0 auto 20px;
-}
-.hero p{
-  max-width:600px;
-  margin:0 auto 30px;
-  color:#E5E7EB;
-}
-.cta{
-  background:white;
-  color:var(--primary);
-  padding:12px 28px;
-  border-radius:30px;
-  text-decoration:none;
-  margin-right:15px;
-  font-weight:600;
-}
-.cta-outline{
-  border:2px solid white;
-  color:white;
-  padding:10px 26px;
-  border-radius:30px;
-  text-decoration:none;
-}
-.mockup{margin-top:60px;}
-.mockup img{
-  width:100%;
-  max-width:850px;
-  border-radius:20px;
-  box-shadow:0 25px 60px rgba(0,0,0,0.25);
-}
-
-/* GRID */
-.grid{display:grid;gap:30px;}
-.grid-3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr));}
-
-/* CARD */
-.card{
-  background:white;
-  padding:30px;
-  border-radius:18px;
-  box-shadow:0 8px 30px rgba(0,0,0,0.05);
   transition:0.3s;
 }
-.card:hover{transform:translateY(-6px);}
 
-/* TIMELINE */
-.timeline{
-  display:flex;
-  flex-wrap:wrap;
-  gap:20px;
-  justify-content:center;
+.nav.scrolled .nav-links a{
+  color:#222;
 }
-.step{
-  background:var(--primary-soft);
-  padding:20px 30px;
-  border-radius:30px;
-  font-weight:600;
+
+.nav-links a:hover{
+  color:var(--accent);
+}
+
+/* ================= HERO ================= */
+
+.hero{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  color:#fff;
+  background:
+  linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
+  url('https://images.unsplash.com/photo-1596495577886-d920f1fb7238?q=80&w=1920') center/cover fixed;
+  position:relative;
+}
+
+.hero-content{
+  max-width:700px;
+}
+
+.hero h1{
+  font-size:48px;
+  line-height:1.2;
+  margin-bottom:20px;
+}
+
+.hero p{
+  margin-bottom:30px;
+  opacity:0.9;
+}
+
+.btn{
+  background:var(--accent);
+  padding:14px 30px;
+  color:#fff;
+  text-decoration:none;
+  border-radius:40px;
+  transition:0.3s;
+}
+
+.btn:hover{
+  background:#145a32;
+}
+
+/* subtle animated gradient */
+.hero::after{
+  content:"";
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:linear-gradient(270deg,#0f3d2e33,#1e844933,#0f3d2e33);
+  background-size:400% 400%;
+  animation:gradientMove 12s ease infinite;
+  top:0;left:0;
+}
+
+@keyframes gradientMove{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+/* ================= GRID ================= */
+
+.grid{
+  display:grid;
+  gap:30px;
+}
+
+.grid-3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr));}
+
+.card{
+  background:#fff;
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.05);
+  transition:0.4s;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+}
+
+/* ================= COUNTER ================= */
+
+.stat{
+  text-align:center;
+}
+
+.stat h2{
+  font-size:40px;
   color:var(--primary);
 }
 
-/* MAP */
-.map iframe{
-  width:100%;
-  height:350px;
-  border:none;
-  border-radius:18px;
-  box-shadow:0 8px 30px rgba(0,0,0,0.05);
+/* ================= REVEAL ================= */
+
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s;
 }
 
-/* FAQ */
-.faq-item{margin-bottom:15px;cursor:pointer;}
-.faq-question{
-  background:var(--primary-soft);
-  padding:15px;
-  border-radius:12px;
-  font-weight:600;
-}
-.faq-answer{
-  display:none;
-  padding:10px 15px;
-  color:var(--muted);
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
 }
 
-/* FOOTER */
+/* ================= WHATSAPP ================= */
+
+.wa{
+  position:fixed;
+  bottom:25px;
+  right:25px;
+  background:#25D366;
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:#fff;
+  font-size:26px;
+  box-shadow:0 10px 20px rgba(0,0,0,0.2);
+  z-index:999;
+}
+
+/* ================= FOOTER ================= */
+
 footer{
   background:var(--primary);
-  color:white;
-  padding:60px 8% 20px;
-}
-.footer-top{
-  display:flex;
-  justify-content:space-between;
-  flex-wrap:wrap;
-  gap:20px;
-  align-items:center;
-}
-.social-title{
-  font-weight:700;
-  margin-bottom:10px;
-}
-.social-icons{display:flex;gap:16px;}
-.footer-address{font-size:14px;text-align:right;}
-.footer-bottom{
+  color:#fff;
   text-align:center;
-  margin-top:30px;
-  border-top:1px solid rgba(255,255,255,0.3);
-  padding-top:15px;
-  font-size:14px;
+  padding:40px 10%;
 }
 
-/* WHATSAPP */
-.wa-float{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25D366;
-  padding:14px;
-  border-radius:50%;
-  color:white;
-  box-shadow:0 10px 25px rgba(0,0,0,0.15);
-}
-
-/* MOBILE */
+/* responsive */
 @media(max-width:768px){
-  nav{padding:18px 6%;}
-  .nav-links{
-    position:absolute;
-    top:70px;
-    right:0;
-    background:white;
-    flex-direction:column;
-    width:220px;
-    padding:25px;
-    display:none;
-    box-shadow:0 10px 25px rgba(0,0,0,0.08);
-  }
-  .nav-links.show{display:flex;}
-  .menu-toggle{display:block;}
-  section{padding:80px 6%;}
-  .hero h1{font-size:28px;}
-  .footer-top{flex-direction:column;align-items:flex-start;}
-  .footer-address{text-align:left;}
+.hero h1{font-size:34px}
 }
 </style>
 </head>
-
 <body>
 
-<nav>
-  <div class="logo">SPMB 2026</div>
-  <div class="nav-links" id="navMenu">
-    <a href="#beranda">Beranda</a>
+<!-- NAVBAR -->
+<div class="nav" id="navbar">
+  <img src="logo.png" class="logo">
+  <div class="nav-links">
+    <a href="#alur">Alur</a>
+    <a href="#jadwal">Jadwal</a>
     <a href="#program">Program</a>
-    <a href="#maps">Kontak</a>
-    <a href="#faq">FAQ</a>
-    <a href="#" class="login-btn">Login</a>
+    <a href="#kontak">Lokasi</a>
   </div>
-  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-</nav>
+</div>
 
-<section id="beranda" class="hero">
-  <h1>Penerimaan Peserta Didik Baru 2026</h1>
-  <p>Modern International Islamic School berstandar global dan pembinaan karakter Qurani.</p>
-  <a href="#" class="cta">Daftar Sekarang</a>
-  <a href="#" class="cta-outline">Lihat Program</a>
-
-  <div class="mockup">
-    <img src="https://images.unsplash.com/photo-1581092795360-9c1c1c1c1c1c" alt="Dashboard Preview">
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>SPMB Madrasah Modern Berbasis Global</h1>
+    <p>Membangun generasi Qurani, berkarakter dan berwawasan internasional.</p>
+    <a href="#alur" class="btn">Daftar Sekarang</a>
   </div>
 </section>
 
+<!-- ALUR -->
+<section id="alur">
+<div class="container">
+<h2 class="reveal">Alur Pendaftaran</h2>
+<div class="grid grid-3">
+<div class="card reveal">Isi Formulir Online</div>
+<div class="card reveal">Verifikasi Berkas</div>
+<div class="card reveal">Tes & Wawancara</div>
+</div>
+</div>
+</section>
+
+<!-- JADWAL -->
+<section id="jadwal" style="background:var(--soft);">
+<div class="container">
+<h2 class="reveal">Jadwal Pendaftaran</h2>
+<div class="card reveal">Gelombang 1: Jan - Mar</div>
+</div>
+</section>
+
+<!-- PROGRAM -->
 <section id="program">
-  <h2 style="text-align:center;margin-bottom:50px;">Program Unggulan</h2>
-  <div class="grid grid-3">
-    <div class="card"><h3>Tahfidz Intensive</h3><p>Pembinaan hafalan terstruktur.</p></div>
-    <div class="card"><h3>STEM & Digital</h3><p>Program sains dan teknologi global.</p></div>
-    <div class="card"><h3>Leadership Global</h3><p>Pembinaan kepemimpinan internasional.</p></div>
-  </div>
+<div class="container">
+<h2 class="reveal">Program Unggulan</h2>
+<div class="grid grid-3">
+<div class="card reveal">Tahfidz Intensive</div>
+<div class="card reveal">STEM & Digital</div>
+<div class="card reveal">Leadership Global</div>
+</div>
+</div>
 </section>
 
-<section id="statistik">
-  <h2 style="text-align:center;margin-bottom:50px;">Statistik Sekolah</h2>
-  <div class="grid grid-3">
-    <div class="card"><h3 class="counter" data-target="1200">0</h3><p>Siswa Aktif</p></div>
-    <div class="card"><h3 class="counter" data-target="50">0</h3><p>Prestasi Nasional</p></div>
-    <div class="card"><h3 class="counter" data-target="95">0</h3><p>Lulus PTN (%)</p></div>
-  </div>
+<!-- STATISTIK -->
+<section style="background:var(--soft);">
+<div class="container">
+<div class="grid grid-3">
+<div class="stat reveal">
+<h2 data-target="1200">0</h2>
+<p>Siswa Aktif</p>
+</div>
+<div class="stat reveal">
+<h2 data-target="95">0</h2>
+<p>Lulus PTN</p>
+</div>
+<div class="stat reveal">
+<h2 data-target="40">0</h2>
+<p>Tenaga Pendidik</p>
+</div>
+</div>
+</div>
 </section>
 
-<section id="alur" style="background:var(--primary-soft);">
-  <h2 style="text-align:center;margin-bottom:50px;">Alur Pendaftaran</h2>
-  <div class="timeline">
-    <div class="step">Registrasi</div>
-    <div class="step">Upload Berkas</div>
-    <div class="step">Tes</div>
-    <div class="step">Pengumuman</div>
-  </div>
-</section>
-
-<section id="jadwal">
-  <h2 style="text-align:center;margin-bottom:30px;">Jadwal</h2>
-  <div class="card" style="max-width:600px;margin:0 auto;text-align:center;">
-    Gelombang 1: Januari - Maret 2026
-  </div>
-</section>
-
-<section id="maps" class="map">
-  <h2 style="text-align:center;margin-bottom:30px;">Lokasi Sekolah</h2>
-  <iframe src="https://maps.google.com/maps?q=jakarta&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
-</section>
-
-<section id="faq">
-  <h2 style="text-align:center;margin-bottom:30px;">FAQ</h2>
-  <div class="faq-item">
-    <div class="faq-question" onclick="toggleFAQ(this)">Apakah tersedia asrama?</div>
-    <div class="faq-answer">Ya, tersedia fasilitas boarding lengkap.</div>
-  </div>
+<!-- MAP -->
+<section id="kontak">
+<div class="container">
+<h2 class="reveal">Lokasi Madrasah</h2>
+<div class="card reveal">
+Google Maps Embed Disini
+</div>
+</div>
 </section>
 
 <footer>
-  <div class="footer-top">
-    <div>
-      <div class="social-title">Ikuti Kami</div>
-      <div class="social-icons">
-        <i data-feather="youtube"></i>
-        <i data-feather="instagram"></i>
-        <i data-feather="facebook"></i>
-        <i data-feather="linkedin"></i>
-        <i data-feather="twitter"></i>
-      </div>
-    </div>
-    <div class="footer-address">
-      Jl. Pendidikan No.1<br>
-      Kebonsakur, Indonesia<br>
-      Telp: 0812-3456-7890
-    </div>
-  </div>
-  <div class="footer-bottom">
-    © 2026 SPMB Premium Desain
-  </div>
+© 2026 Madrasah Modern | All Rights Reserved
 </footer>
 
-<a href="#" class="wa-float">
-  <i data-feather="phone"></i>
-</a>
+<a href="#" class="wa">☎</a>
 
 <script>
-feather.replace();
-
-function toggleMenu(){
-  document.getElementById("navMenu").classList.toggle("show");
-}
-
-function toggleFAQ(el){
-  const answer = el.nextElementSibling;
-  answer.style.display = answer.style.display === "block" ? "none" : "block";
-}
-
-/* Scroll Reveal */
-const sections = document.querySelectorAll("section");
+// navbar glass
 window.addEventListener("scroll",()=>{
-  sections.forEach(sec=>{
-    const top = window.scrollY;
-    const offset = sec.offsetTop - 150;
-    if(top > offset){
-      sec.classList.add("show");
+  document.getElementById("navbar").classList.toggle("scrolled",window.scrollY>50);
+});
+
+// reveal animation
+const reveals=document.querySelectorAll(".reveal");
+window.addEventListener("scroll",()=>{
+  reveals.forEach(r=>{
+    const top=r.getBoundingClientRect().top;
+    if(top<window.innerHeight-100){
+      r.classList.add("active");
     }
   });
 });
 
-/* Counter Animation */
-const counters = document.querySelectorAll(".counter");
+// counter
+const counters=document.querySelectorAll("[data-target]");
 counters.forEach(counter=>{
-  const update = ()=>{
-    const target = +counter.getAttribute("data-target");
-    const count = +counter.innerText;
-    const inc = target / 100;
-    if(count < target){
-      counter.innerText = Math.ceil(count + inc);
+  const update=()=>{
+    const target=+counter.getAttribute("data-target");
+    const count=+counter.innerText;
+    const inc=target/100;
+    if(count<target){
+      counter.innerText=Math.ceil(count+inc);
       setTimeout(update,20);
     }else{
-      counter.innerText = target + "+";
+      counter.innerText=target;
     }
   };
   update();
