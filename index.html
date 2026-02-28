@@ -156,7 +156,6 @@ footer p.address{margin-top:8px;font-weight:500;}
 </div>
 </section>
 
-<!-- Example Section -->
 <section id="alur" class="reveal">
 <h2><i class="fa-solid fa-list-ol"></i> Alur Pendaftaran</h2>
 <div class="grid">
@@ -167,7 +166,88 @@ footer p.address{margin-top:8px;font-weight:500;}
 </div>
 </section>
 
-<!-- Other sections like jadwal, pengumuman, brosur, program, statistik, fasilitas, eskul, testimoni, faq, kontak -->
+<section id="jadwal" class="reveal">
+<h2><i class="fa-solid fa-calendar"></i> Jadwal Pendaftaran</h2>
+<p>Januari - Mei 2026</p>
+</section>
+
+<section id="pengumuman" class="reveal">
+<h2><i class="fa-solid fa-bullhorn"></i> Pengumuman</h2>
+<p>Hasil seleksi diumumkan melalui website & email resmi.</p>
+</section>
+
+<section id="brosur" class="reveal">
+<h2><i class="fa-solid fa-file-pdf"></i> Brosur Lengkap</h2>
+<div class="card">Download Brosur PDF</div>
+</section>
+
+<section id="program" class="reveal">
+<h2><i class="fa-solid fa-graduation-cap"></i> Program Unggulan</h2>
+<div class="grid">
+<div class="card">Tahfidz Intensif</div>
+<div class="card">Cambridge Curriculum</div>
+<div class="card">Digital Islamic School</div>
+</div>
+</section>
+
+<section id="statistik" class="reveal">
+<h2><i class="fa-solid fa-chart-simple"></i> Statistik</h2>
+<div class="grid">
+<div class="card"><div class="counter" data-target="1200">0</div>Siswa</div>
+<div class="card"><div class="counter" data-target="95">0</div>% Kelulusan</div>
+<div class="card"><div class="counter" data-target="150">0</div>Guru</div>
+</div>
+</section>
+
+<section id="fasilitas" class="reveal">
+<h2><i class="fa-solid fa-building-columns"></i> Fasilitas Madrasah</h2>
+<div class="grid">
+<div class="card">Smart Classroom</div>
+<div class="card">Asrama Modern</div>
+<div class="card">Masjid Representatif</div>
+</div>
+</section>
+
+<section id="eskul" class="reveal">
+<h2><i class="fa-solid fa-baseball"></i> Kegiatan Eskul</h2>
+<div class="grid">
+<div class="card">Robotics</div>
+<div class="card">Panahan</div>
+<div class="card">English Club</div>
+</div>
+</section>
+
+<section id="alumni" class="reveal">
+<h2><i class="fa-solid fa-user-graduate"></i> Testimoni Alumni</h2>
+<div class="slider">
+<div class="slide active">
+<img src="https://randomuser.me/api/portraits/men/32.jpg">
+<p>"Sekolah ini membentuk karakter & akademik saya."</p>
+</div>
+<div class="slide">
+<img src="https://randomuser.me/api/portraits/women/44.jpg">
+<p>"Lingkungan islami & internasional."</p>
+</div>
+</div>
+</section>
+
+<section id="faq" class="reveal">
+<h2><i class="fa-solid fa-circle-question"></i> FAQ</h2>
+<div class="faq-item">
+Apakah tersedia beasiswa?
+<div class="faq-answer"><p>Ya, tersedia beasiswa prestasi & tahfidz.</p></div>
+</div>
+<div class="faq-item">
+Apakah ada asrama?
+<div class="faq-answer"><p>Ya, boarding modern terpisah putra & putri.</p></div>
+</div>
+</section>
+
+<section id="kontak" class="reveal">
+<h2><i class="fa-solid fa-location-dot"></i> Lokasi Madrasah</h2>
+<iframe src="https://maps.google.com/maps?q=jakarta&t=&z=13&ie=UTF8&iwloc=&output=embed"
+width="100%" height="300" style="border-radius:15px;border:none"></iframe>
+</section>
 
 <footer>
 <h4>Ikuti Kami</h4>
@@ -200,7 +280,6 @@ let winScroll=document.documentElement.scrollTop;
 let height=document.documentElement.scrollHeight-document.documentElement.clientHeight;
 document.getElementById("progressBar").style.width=(winScroll/height)*100+"%";
 document.querySelector('.hero').style.backgroundPositionY = -(window.scrollY*0.25) + "px";
-
 /* Parallax Card */
 document.querySelectorAll('.card').forEach((card,i)=>{
 const speed = 0.05 + (i%3)*0.02;
