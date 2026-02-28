@@ -14,20 +14,18 @@
   --accent:#1e8449;
   --soft:#f4f7f6;
 }
-
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Poppins',sans-serif;color:#222;background:#fff;overflow-x:hidden}
+body{font-family:'Poppins',sans-serif;color:#222;background:#fff}
 
-section{padding:100px 8%;position:relative}
+section{padding:100px 8%}
 .container{max-width:1200px;margin:auto}
+h2{margin-bottom:30px;color:var(--primary)}
 
-/* NAVBAR */
 .nav{
   position:fixed;
   width:100%;
   top:0;
-  left:0;
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -35,254 +33,226 @@ section{padding:100px 8%;position:relative}
   z-index:999;
   transition:.4s;
 }
-
 .nav.scrolled{
-  background:rgba(255,255,255,0.85);
-  backdrop-filter:blur(12px);
-  box-shadow:0 10px 25px rgba(0,0,0,.05);
+  background:rgba(255,255,255,.9);
+  backdrop-filter:blur(10px);
+  box-shadow:0 5px 20px rgba(0,0,0,.05);
 }
-
-.nav-left{
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-
 .logo{height:45px}
-
-.brand{
-  font-weight:600;
-  font-size:18px;
-  color:#fff;
-}
-
+.brand{color:#fff;font-weight:600}
 .nav.scrolled .brand{color:#222}
 
-.nav-links{
-  display:flex;
-  gap:22px;
-}
-
-.nav-links a{
-  text-decoration:none;
-  color:#fff;
-  font-weight:500;
-  font-size:14px;
-}
-
+.nav-links{display:flex;gap:25px}
+.nav-links a{text-decoration:none;color:#fff;font-weight:500}
 .nav.scrolled .nav-links a{color:#222}
 
-.toggle{
-  display:none;
-  font-size:26px;
-  color:#fff;
-  cursor:pointer;
-}
-
-.nav.scrolled .toggle{color:#222}
-
-/* HERO */
 .hero{
   height:100vh;
   display:flex;
   align-items:center;
   color:#fff;
   background:
-  linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+  linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
   url('https://images.unsplash.com/photo-1596495577886-d920f1fb7238?q=80&w=1920') center/cover fixed;
 }
-
 .hero-content{max-width:700px}
-
-.hero h1{font-size:48px;margin-bottom:20px}
-.hero p{margin-bottom:30px;opacity:.9}
-
+.hero h1{font-size:46px;margin-bottom:20px}
 .btn{
   background:var(--accent);
   padding:14px 30px;
-  color:#fff;
   border-radius:40px;
+  color:#fff;
   text-decoration:none;
 }
 
-/* GRID */
 .grid{display:grid;gap:30px}
 .grid-3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
 .card{
   background:#fff;
-  padding:30px;
-  border-radius:20px;
+  padding:25px;
+  border-radius:15px;
   box-shadow:0 10px 30px rgba(0,0,0,.05);
-  transition:.4s;
 }
-.card:hover{transform:translateY(-6px)}
 
-/* REVEAL */
-.reveal{opacity:.2;transform:translateY(40px);transition:1s}
-.reveal.active{opacity:1;transform:translateY(0)}
-
-/* COUNTER */
 .stat{text-align:center}
-.stat h2{font-size:40px;color:var(--primary)}
+.stat h2{font-size:38px;color:var(--primary)}
 
-/* FOOTER */
 footer{
   background:var(--primary);
   color:#fff;
-  padding:50px 8%;
+  padding:60px 8% 30px;
 }
-
 .footer-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:30px;
 }
-
-.social i{
-  font-size:20px;
-  margin-right:10px;
-}
-
-/* WA */
-.wa{
-  position:fixed;
-  bottom:25px;
-  right:25px;
-  background:#25D366;
-  width:55px;
-  height:55px;
-  border-radius:50%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  color:#fff;
-  font-size:26px;
-  box-shadow:0 10px 20px rgba(0,0,0,.2);
-  z-index:999;
-}
-
-/* MOBILE */
-@media(max-width:900px){
-.nav-links{
-  position:absolute;
-  top:70px;
-  right:-100%;
-  background:#fff;
-  flex-direction:column;
-  width:250px;
-  padding:30px;
-  transition:.4s;
-}
-.nav-links a{color:#222}
-.nav-links.active{right:0}
-.toggle{display:block}
+.copyright{
+  text-align:center;
+  margin-top:40px;
+  font-size:14px;
+  opacity:.8;
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
+<!-- NAVBAR -->
 <div class="nav" id="navbar">
-  <div class="nav-left">
+  <div style="display:flex;align-items:center;gap:12px;">
     <img src="logo.png" class="logo">
     <div class="brand">Madrasah Modern</div>
   </div>
-
-  <div class="nav-links" id="menu">
-    <a href="#alur">Alur</a>
-    <a href="#jadwal">Jadwal</a>
-    <a href="#pengumuman">Pengumuman</a>
-    <a href="#brosur">Brosur</a>
+  <div class="nav-links">
+    <a href="#">Beranda</a>
     <a href="#program">Program</a>
-    <a href="#statistik">Statistik</a>
-    <a href="#fasilitas">Fasilitas</a>
-    <a href="#eskul">Eskul</a>
-    <a href="#alumni">Alumni</a>
-    <a href="#lokasi">Lokasi</a>
+    <a href="#lokasi">Kontak</a>
+    <a href="#faq">FAQ</a>
+    <a href="#">Login</a>
   </div>
-
-  <div class="toggle" id="toggle"><i class="ri-menu-line"></i></div>
 </div>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-content">
     <h1>SPMB Madrasah Modern Berbasis Global</h1>
-    <p>Mencetak generasi Qurani, unggul dan berwawasan internasional.</p>
-    <a href="#alur" class="btn">Daftar Sekarang</a>
+    <p>Mencetak generasi Qurani, unggul, dan berkarakter internasional.</p>
+    <a href="#alur" class="btn">Lihat Alur Pendaftaran</a>
   </div>
 </section>
 
-<!-- SECTION SESUAI URUTAN -->
-<section id="alur"><div class="container"><h2 class="reveal">Alur Pendaftaran</h2></div></section>
-<section id="jadwal" style="background:var(--soft);"><div class="container"><h2 class="reveal">Jadwal Pendaftaran</h2></div></section>
-<section id="pengumuman"><div class="container"><h2 class="reveal">Pengumuman</h2></div></section>
-<section id="brosur" style="background:var(--soft);"><div class="container"><h2 class="reveal">Brosur Lengkap</h2></div></section>
-<section id="program"><div class="container"><h2 class="reveal">Program Unggulan</h2></div></section>
-
-<section id="statistik" style="background:var(--soft);">
-<div class="container grid grid-3">
-<div class="stat reveal"><h2 data-target="1200">0</h2><p>Siswa</p></div>
-<div class="stat reveal"><h2 data-target="95">0</h2><p>Lulus PTN</p></div>
-<div class="stat reveal"><h2 data-target="40">0</h2><p>Guru</p></div>
+<!-- ALUR -->
+<section id="alur">
+<div class="container">
+<h2>Alur Pendaftaran</h2>
+<div class="grid grid-3">
+<div class="card">1. Isi formulir online</div>
+<div class="card">2. Upload berkas & verifikasi</div>
+<div class="card">3. Tes seleksi & wawancara</div>
+</div>
 </div>
 </section>
 
-<section id="fasilitas"><div class="container"><h2 class="reveal">Fasilitas Madrasah</h2></div></section>
-<section id="eskul" style="background:var(--soft);"><div class="container"><h2 class="reveal">Kegiatan Eskul</h2></div></section>
-<section id="alumni"><div class="container"><h2 class="reveal">Alumni / Testimoni</h2></div></section>
-<section id="lokasi" style="background:var(--soft);"><div class="container"><h2 class="reveal">Maps / Lokasi</h2></div></section>
+<!-- JADWAL -->
+<section style="background:var(--soft);">
+<div class="container">
+<h2>Jadwal Pendaftaran</h2>
+<div class="card">
+Gelombang 1: Januari – Maret <br>
+Gelombang 2: April – Juni
+</div>
+</div>
+</section>
+
+<!-- PENGUMUMAN -->
+<section>
+<div class="container">
+<h2>Pengumuman</h2>
+<div class="card">Hasil seleksi diumumkan melalui website dan email resmi.</div>
+</div>
+</section>
+
+<!-- BROSUR -->
+<section style="background:var(--soft);">
+<div class="container">
+<h2>Brosur Lengkap</h2>
+<div class="card">Download brosur lengkap dalam format PDF untuk informasi detail kurikulum dan fasilitas.</div>
+</div>
+</section>
+
+<!-- PROGRAM -->
+<section id="program">
+<div class="container">
+<h2>Program Unggulan</h2>
+<div class="grid grid-3">
+<div class="card">Tahfidz Intensive</div>
+<div class="card">STEM & Digital Learning</div>
+<div class="card">Leadership & Character Building</div>
+</div>
+</div>
+</section>
+
+<!-- STATISTIK -->
+<section style="background:var(--soft);">
+<div class="container grid grid-3">
+<div class="stat"><h2>1200+</h2><p>Siswa Aktif</p></div>
+<div class="stat"><h2>95%</h2><p>Lulus PTN</p></div>
+<div class="stat"><h2>40</h2><p>Tenaga Pendidik</p></div>
+</div>
+</section>
+
+<!-- FASILITAS -->
+<section>
+<div class="container">
+<h2>Fasilitas Madrasah</h2>
+<div class="grid grid-3">
+<div class="card">Laboratorium Sains</div>
+<div class="card">Perpustakaan Digital</div>
+<div class="card">Masjid & Asrama</div>
+</div>
+</div>
+</section>
+
+<!-- ESKUL -->
+<section style="background:var(--soft);">
+<div class="container">
+<h2>Kegiatan Eskul</h2>
+<div class="grid grid-3">
+<div class="card">Pramuka</div>
+<div class="card">Robotik</div>
+<div class="card">Tahfidz Club</div>
+</div>
+</div>
+</section>
+
+<!-- TESTIMONI -->
+<section>
+<div class="container">
+<h2>Testimoni Alumni</h2>
+<div class="card">
+“Madrasah ini membentuk karakter dan membantu saya diterima di PTN favorit.” – Ahmad, Alumni 2024
+</div>
+</div>
+</section>
+
+<!-- LOKASI -->
+<section id="lokasi" style="background:var(--soft);">
+<div class="container">
+<h2>Lokasi Madrasah</h2>
+<div class="card">Embed Google Maps di sini.</div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+<div class="container">
+<h2>FAQ</h2>
+<div class="card"><strong>Apakah tersedia beasiswa?</strong><br>Ya, tersedia beasiswa prestasi dan tahfidz.</div><br>
+<div class="card"><strong>Apakah ada asrama?</strong><br>Tersedia asrama putra dan putri.</div>
+</div>
+</section>
 
 <footer>
-  <div class="footer-grid">
-    <div>
-      <h3>Madrasah Modern</h3>
-      <p>Jl. Pendidikan No. 123<br>Kota Anda</p>
-    </div>
-    <div>
-      <h4>Ikuti Kami</h4>
-      <div class="social">
-        <i class="ri-facebook-fill"></i>
-        <i class="ri-instagram-line"></i>
-        <i class="ri-youtube-fill"></i>
-      </div>
-    </div>
-  </div>
+<div class="footer-grid">
+<div>
+<h3>Madrasah Modern</h3>
+<p>Jl. Pendidikan No. 123<br>Kota Anda</p>
+</div>
+<div>
+<h4>Ikuti Kami</h4>
+<i class="ri-facebook-fill"></i>
+<i class="ri-instagram-line"></i>
+<i class="ri-youtube-fill"></i>
+</div>
+</div>
+<div class="copyright">
+© 2026 Madrasah Modern. All Rights Reserved.
+</div>
 </footer>
 
-<a href="#" class="wa"><i class="ri-whatsapp-line"></i></a>
-
 <script>
-// navbar glass
 window.addEventListener("scroll",()=>{
   navbar.classList.toggle("scrolled",window.scrollY>50);
-});
-
-// mobile toggle
-toggle.onclick=()=>menu.classList.toggle("active");
-
-// reveal
-const reveals=document.querySelectorAll(".reveal");
-window.addEventListener("scroll",()=>{
-  reveals.forEach(r=>{
-    if(r.getBoundingClientRect().top<window.innerHeight-100){
-      r.classList.add("active");
-    }
-  });
-});
-
-// counter
-document.querySelectorAll("[data-target]").forEach(counter=>{
-  const update=()=>{
-    const target=+counter.dataset.target;
-    const count=+counter.innerText;
-    const inc=target/100;
-    if(count<target){
-      counter.innerText=Math.ceil(count+inc);
-      setTimeout(update,20);
-    }else{counter.innerText=target;}
-  };
-  update();
 });
 </script>
 
