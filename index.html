@@ -317,31 +317,31 @@ style="border-radius:15px;border:none"></iframe>
 <a href="#" class="wa"><i class="fab fa-whatsapp"></i></a>
 
 <script>
-// Navbar color auto based on hero visibility
-const navbar = document.getElementById('navbar');
-const hero = document.querySelector('.hero');
+const toggle=document.getElementById('toggle');
+const navLinks=document.getElementById('navLinks');
+toggle.onclick=()=>navLinks.classList.toggle('active');
 
-// Gunakan Intersection Observer untuk mendeteksi hero
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      // Hero terlihat: teks navbar putih
-      navbar.style.color = '#fff';
-      document.querySelectorAll('.nav-links a').forEach(a => a.style.color = '#fff');
-      document.querySelector('.toggle i').style.color = '#fff';
-    } else {
-      // Scroll ke section lain: teks navbar gelap
-      navbar.style.color = 'var(--text-dark)';
-      document.querySelectorAll('.nav-links a').forEach(a => a.style.color = 'var(--text-dark)');
-      document.querySelector('.toggle i').style.color = 'var(--emerald)';
-    }
-  });
-},{
-  root: null,
-  threshold: 0.05 // Bisa disesuaikan, seberapa banyak hero terlihat
+/* Navbar scroll & progress */
+window.addEventListener('scroll',()=>{
+document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);
+let winScroll=document.documentElement.scrollTop;
+let height=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+document.getElementById("progressBar").style.width=(winScroll/height)*100+"%";
+document.querySelector('.hero').style.backgroundPositionY = -(window.scrollY*0.25) + "px";
+
+/* Navbar text auto contrast */
+const hero=document.querySelector('.hero');
+const heroTop=hero.getBoundingClientRect().top;
+const heroHeight=hero.offsetHeight;
+let navbar=document.getElementById('navbar');
+if(window.scrollY<heroHeight*0.6){
+navbar.style.color= '#fff';
+document.querySelectorAll('.nav-links a').forEach(a=>a.style.color='#fff');
+}else{
+navbar.style.color= 'var(--primary)';
+document.querySelectorAll('.nav-links a').forEach(a=>a.style.color='var(--primary)');
+}
 });
-
-observer.observe(hero);
 
 /* Counter */
 document.querySelectorAll('.counter').forEach(counter=>{
