@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> SPMB MA MANBA'USSALAM</title></title>
+<title>Modern International Islamic School</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 <style>
@@ -144,8 +144,8 @@ footer p.address{margin-top:8px;font-weight:500;}
 
 <section class="hero">
 <div>
-<h1>SPMB MA Manba'ussalam</h1>
-<p>Menggabungkan nilai Islam & standar nasional</p>
+<h1>Elite Modern Islamic Education</h1>
+<p>Menggabungkan nilai Islam & standar internasional</p>
 <div class="hero-buttons">
 <button class="btn-primary">Daftar Sekarang</button>
 <a href="login-siswa.html" class="btn-outline">Login</a>
@@ -158,8 +158,8 @@ footer p.address{margin-top:8px;font-weight:500;}
 <h2><i class="fa-solid fa-list-ol"></i> Alur Pendaftaran</h2>
 <div class="grid">
 <div class="card">Isi Form Online</div>
-<div class="card">Upload Berkas</div>
 <div class="card">Tes Seleksi</div>
+<div class="card">Wawancara</div>
 <div class="card">Pengumuman</div>
 </div>
 </section>
@@ -167,7 +167,7 @@ footer p.address{margin-top:8px;font-weight:500;}
 <section id="jadwal">
 <h2><i class="fa-solid fa-calendar-days"></i> Jadwal Pendaftaran</h2>
 <div class="grid">
-<div class="card"><i class="fa-solid fa-calendar-day"></i> Mei - Juli 2026</div>
+<div class="card"><i class="fa-solid fa-calendar-day"></i> Januari - Mei 2026</div>
 </div>
 </section>
 
@@ -189,7 +189,7 @@ footer p.address{margin-top:8px;font-weight:500;}
 <h2><i class="fa-solid fa-graduation-cap"></i> Program Unggulan</h2>
 <div class="grid">
 <div class="card">Tahfidz Intensif</div>
-<div class="card">Kitab Kuning Klasik</div>
+<div class="card">Cambridge Curriculum</div>
 <div class="card">Digital Islamic School</div>
 </div>
 </section>
@@ -215,9 +215,9 @@ footer p.address{margin-top:8px;font-weight:500;}
 <section id="eskul">
 <h2><i class="fa-solid fa-basketball"></i> Kegiatan Eskul</h2>
 <div class="grid">
-<div class="card">Pramuka</div>
-<div class="card">Marching Band</div>
-<div class="card">Seni Tari</div>
+<div class="card">Robotics</div>
+<div class="card">Panahan</div>
+<div class="card">English Club</div>
 </div>
 </section>
 
@@ -267,9 +267,9 @@ style="border-radius:15px;border:none"></iframe>
 <i class="fab fa-tiktok"></i>
 <i class="fab fa-linkedin"></i>
 </div>
-<p class="address">Jl. Warung Selikur KM. 7,5, Carenang</p>
+<p class="address">Jl. Pendidikan No.1, Indonesia</p>
 <div class="footer-divider"></div>
-<div class="copyright">© 2026 SPMB MA MANBAUSSALAM. All rights reserved.</div>
+<div class="copyright">© 2026 Modern International Islamic School. All rights reserved.</div>
 </footer>
 
 <div class="dot-nav">
@@ -279,47 +279,70 @@ style="border-radius:15px;border:none"></iframe>
 <a href="#" class="wa"><i class="fab fa-whatsapp"></i></a>
 
 <script>
-// Navbar toggle mobile
-const toggle = document.getElementById('toggle');
-const navLinks = document.getElementById('navLinks');
-toggle.onclick = () => navLinks.classList.toggle('active');
+const toggle=document.getElementById('toggle');
+const navLinks=document.getElementById('navLinks');
+toggle.onclick=()=>navLinks.classList.toggle('active');
 
-// Progress bar
-window.addEventListener('scroll', () => {
-  const navbar = document.getElementById('navbar');
-  navbar.classList.toggle('scrolled', window.scrollY > 50);
+/* Navbar scroll & progress */
+window.addEventListener('scroll',()=>{
+document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);
+let winScroll=document.documentElement.scrollTop;
+let height=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+document.getElementById("progressBar").style.width=(winScroll/height)*100+"%";
+document.querySelector('.hero').style.backgroundPositionY = -(window.scrollY*0.25) + "px";
 
-  const winScroll = document.documentElement.scrollTop;
-  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  document.getElementById("progressBar").style.width = (winScroll/height)*100 + "%";
-
-  // Parallax hero
-  document.querySelector('.hero').style.backgroundPositionY = -(window.scrollY*0.25) + "px";
-
-  // Auto navbar color based on section background
-  document.querySelectorAll('section, .hero').forEach(sec => {
-    const rect = sec.getBoundingClientRect();
-    if(rect.top <= 60 && rect.bottom >= 60) { // navbar berada di section
-      const bgColor = window.getComputedStyle(sec).backgroundColor;
-      const rgb = bgColor.match(/\d+/g);
-      if(rgb) {
-        // brightness formula
-        const brightness = (0.299*rgb[0] + 0.587*rgb[1] + 0.114*rgb[2]);
-        if(brightness < 150){ 
-          // gelap → navbar putih soft
-          navbar.style.color = 'rgba(255,255,255,0.9)';
-          document.querySelectorAll('.nav-links a').forEach(a=>a.style.color='rgba(255,255,255,0.9)');
-          document.querySelector('.toggle i').style.color = 'rgba(255,255,255,0.9)';
-        } else {
-          // terang → navbar gelap
-          navbar.style.color = 'var(--text-dark)';
-          document.querySelectorAll('.nav-links a').forEach(a=>a.style.color='var(--text-dark)');
-          document.querySelector('.toggle i').style.color = 'var(--navy)';
-        }
-      }
-    }
-  });
+/* Navbar text auto contrast */
+const hero=document.querySelector('.hero');
+const heroTop=hero.getBoundingClientRect().top;
+const heroHeight=hero.offsetHeight;
+let navbar=document.getElementById('navbar');
+if(window.scrollY<heroHeight*0.6){
+navbar.style.color= '#fff';
+document.querySelectorAll('.nav-links a').forEach(a=>a.style.color='#fff');
+}else{
+navbar.style.color= 'var(--primary)';
+document.querySelectorAll('.nav-links a').forEach(a=>a.style.color='var(--primary)');
+}
 });
+
+/* Counter */
+document.querySelectorAll('.counter').forEach(counter=>{
+let update=()=>{
+let target=+counter.dataset.target;
+let count=+counter.innerText;
+let inc=target/200;
+if(count<target){counter.innerText=Math.ceil(count+inc);setTimeout(update,20);}
+else counter.innerText=target;
+}
+update();
+});
+
+/* FAQ Accordion */
+document.querySelectorAll('.faq-item').forEach(item=>{
+item.addEventListener('click',()=>{
+let ans=item.querySelector('.faq-answer');
+ans.style.maxHeight=ans.style.maxHeight?null:ans.scrollHeight+'px';
+});
+});
+
+/* Slider */
+let slides=document.querySelectorAll('.slide');
+let index=0;
+setInterval(()=>{
+slides[index].classList.remove('active');
+index=(index+1)%slides.length;
+slides[index].classList.add('active');
+},4000);
+
+/* Card scroll animation */
+function revealCards(){
+document.querySelectorAll('.card').forEach(card=>{
+let top=card.getBoundingClientRect().top;
+if(top<window.innerHeight-100){card.classList.add('visible');}
+});
+}
+window.addEventListener('scroll',revealCards);
+revealCards();
 </script>
 </body>
 </html>
