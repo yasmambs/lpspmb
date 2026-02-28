@@ -3,12 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SPMB Madrasah Premium</title>
+<title>SPMB Madrasah</title>
 
 <style>
 :root{
 --emerald:#065f46;
---emerald-dark:#064e3b;
 --emerald-soft:#ecfdf5;
 --dark:#0f172a;
 --gray:#64748b;
@@ -22,108 +21,61 @@ box-sizing:border-box;
 font-family:'Segoe UI',sans-serif;
 }
 
-html{
+body{
+background:white;
+color:var(--dark);
 scroll-behavior:smooth;
 }
 
-body{
-color:var(--dark);
-background:white;
-}
-
-/* ================= NAVBAR ================= */
+/* ================= NAVBAR NORMAL ================= */
 
 nav{
 position:fixed;
 top:0;
 width:100%;
-padding:20px 8%;
+background:white;
+padding:18px 8%;
 display:flex;
 justify-content:space-between;
 align-items:center;
+box-shadow:0 2px 10px rgba(0,0,0,0.05);
 z-index:1000;
-transition:.3s;
-}
-
-nav.scrolled{
-background:white;
-box-shadow:0 5px 20px rgba(0,0,0,0.05);
 }
 
 .logo{
 font-weight:700;
 font-size:20px;
-color:white;
-transition:.3s;
-}
-
-nav.scrolled .logo{
 color:var(--emerald);
 }
 
 .menu{
 display:flex;
 gap:30px;
-align-items:center;
 }
 
 .menu a{
 text-decoration:none;
-color:white;
+color:var(--dark);
 font-weight:500;
 transition:.3s;
 }
 
-nav.scrolled .menu a{
-color:var(--dark);
-}
-
 .menu a:hover{
-color:#d1fae5;
-}
-
-nav.scrolled .menu a:hover{
 color:var(--emerald);
-}
-
-/* Dropdown */
-
-.dropdown{
-position:relative;
-}
-
-.dropdown-content{
-display:none;
-position:absolute;
-top:35px;
-background:white;
-border-radius:12px;
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
-padding:10px 0;
-min-width:180px;
-}
-
-.dropdown-content a{
-display:block;
-padding:10px 20px;
-color:var(--dark);
-}
-
-.dropdown:hover .dropdown-content{
-display:block;
 }
 
 /* ================= HERO ================= */
 
 .hero{
-height:100vh;
+margin-top:80px;
+min-height:100vh;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
 padding:0 8%;
-background:linear-gradient(rgba(6,95,70,0.85),rgba(6,95,70,0.85)),
+background:linear-gradient(rgba(6,95,70,0.85), rgba(6,95,70,0.85)),
 url('https://images.unsplash.com/photo-1596495578065-6e0763fa1178');
 background-size:cover;
 background-position:center;
@@ -131,15 +83,16 @@ color:white;
 }
 
 .hero h1{
-font-size:44px;
+font-size:42px;
 margin-bottom:20px;
 }
 
 .hero p{
-max-width:650px;
+max-width:600px;
 margin-bottom:40px;
-opacity:0.9;
 }
+
+/* TOMBOL SAMA UKURAN */
 
 .hero-buttons{
 display:flex;
@@ -148,15 +101,21 @@ flex-wrap:wrap;
 justify-content:center;
 }
 
+.btn{
+display:inline-block;
+width:220px;          /* ukuran sama */
+padding:15px 0;       /* tinggi sama */
+border-radius:40px;
+font-weight:600;
+text-align:center;
+transition:.3s;
+cursor:pointer;
+}
+
 .btn-primary{
-padding:15px 40px;
-border:none;
-border-radius:50px;
 background:white;
 color:var(--emerald);
-font-weight:600;
-cursor:pointer;
-transition:.3s;
+border:none;
 }
 
 .btn-primary:hover{
@@ -164,12 +123,9 @@ background:#d1fae5;
 }
 
 .btn-outline{
-padding:15px 40px;
-border-radius:50px;
 border:2px solid white;
 color:white;
-font-weight:600;
-transition:.3s;
+background:transparent;
 }
 
 .btn-outline:hover{
@@ -181,17 +137,9 @@ color:var(--emerald);
 
 section{
 padding:100px 8%;
-opacity:0;
-transform:translateY(40px);
-transition:1s ease;
 }
 
-section.show{
-opacity:1;
-transform:translateY(0);
-}
-
-section.alt{
+section:nth-child(even){
 background:var(--emerald-soft);
 }
 
@@ -206,8 +154,6 @@ color:var(--emerald);
 margin-bottom:10px;
 }
 
-/* Cards */
-
 .cards{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -217,20 +163,20 @@ gap:30px;
 .card{
 background:white;
 padding:30px;
-border-radius:18px;
-box-shadow:0 15px 30px rgba(0,0,0,0.05);
+border-radius:16px;
+box-shadow:0 10px 25px rgba(0,0,0,0.05);
 transition:.3s;
 }
 
 .card:hover{
-transform:translateY(-8px);
+transform:translateY(-5px);
 }
 
 /* ================= FOOTER ================= */
 
 footer{
 background:var(--light);
-padding:70px 8% 30px;
+padding:60px 8% 30px;
 text-align:center;
 border-top:1px solid #e2e8f0;
 }
@@ -242,50 +188,30 @@ margin:25px 0;
 }
 
 footer p{
-font-size:14px;
 color:var(--gray);
+font-size:14px;
 }
-
-/* ================= RESPONSIVE ================= */
 
 @media(max-width:768px){
 .hero h1{
 font-size:32px;
 }
-.menu{
-gap:15px;
+.btn{
+width:100%;
 }
 }
-
 </style>
 </head>
 <body>
 
 <!-- NAVBAR -->
-<nav id="navbar">
+<nav>
 <div class="logo">SPMB Madrasah</div>
 <div class="menu">
 <a href="#home">Beranda</a>
-
-<div class="dropdown">
-<a href="#">Program ▾</a>
-<div class="dropdown-content">
-<a href="#">Tahfidz</a>
-<a href="#">Sains</a>
-<a href="#">Boarding</a>
-</div>
-</div>
-
+<a href="#program">Program</a>
 <a href="#jadwal">Jadwal</a>
-
-<div class="dropdown">
-<a href="#">Login ▾</a>
-<div class="dropdown-content">
-<a href="login-siswa.html">Login Siswa</a>
-<a href="login-admin.html">Login Admin</a>
-</div>
-</div>
-
+<a href="#kontak">Kontak</a>
 </div>
 </nav>
 
@@ -295,41 +221,41 @@ gap:15px;
 <p>Madrasah unggulan berbasis karakter, sains, dan Al-Qur'an dengan sistem pembelajaran modern.</p>
 
 <div class="hero-buttons">
-<button class="btn-primary">Daftar Sekarang</button>
-<a href="#jadwal" class="btn-outline">Lihat Jadwal</a>
+<a href="#" class="btn btn-primary">Daftar Sekarang</a>
+<a href="login-siswa.html" class="btn btn-outline">Login</a>
 </div>
 </section>
 
 <!-- PROGRAM -->
-<section>
+<section id="program">
 <div class="section-title">
 <h2>Program Unggulan</h2>
-<p>Kurikulum terpadu berbasis karakter dan teknologi</p>
+<p>Kurikulum terpadu dan berbasis karakter</p>
 </div>
 
 <div class="cards">
 <div class="card">
-<h3>Tahfidz Al-Qur'an</h3>
-<p>Pembinaan hafalan dan akhlak secara intensif.</p>
+<h3>Tahfidz</h3>
+<p>Program intensif hafalan dan pembinaan akhlak.</p>
 </div>
 
 <div class="card">
 <h3>Madrasah Sains</h3>
-<p>Penguatan STEM dan literasi digital modern.</p>
+<p>Fokus pada penguatan STEM dan literasi digital.</p>
 </div>
 
 <div class="card">
-<h3>Boarding School</h3>
+<h3>Boarding</h3>
 <p>Pendidikan berasrama dengan pembinaan 24 jam.</p>
 </div>
 </div>
 </section>
 
 <!-- JADWAL -->
-<section class="alt" id="jadwal">
+<section id="jadwal">
 <div class="section-title">
 <h2>Jadwal Pendaftaran</h2>
-<p>Ikuti tahapan sesuai timeline berikut</p>
+<p>Ikuti tahapan sesuai timeline</p>
 </div>
 
 <div class="cards">
@@ -351,40 +277,14 @@ gap:15px;
 </section>
 
 <!-- FOOTER -->
-<footer>
-<h3>SPMB Madrasah Premium</h3>
+<footer id="kontak">
+<h3>SPMB Madrasah</h3>
 <p>Jl. Pendidikan No.123, Indonesia</p>
 
 <div class="footer-divider"></div>
 
 <p>© 2026 SPMB Madrasah. All Rights Reserved.</p>
 </footer>
-
-<script>
-
-/* Navbar change on scroll */
-window.addEventListener("scroll", function(){
-const nav = document.getElementById("navbar");
-if(window.scrollY > 50){
-nav.classList.add("scrolled");
-}else{
-nav.classList.remove("scrolled");
-}
-});
-
-/* Scroll reveal */
-const sections = document.querySelectorAll("section");
-
-window.addEventListener("scroll", ()=>{
-sections.forEach(sec=>{
-const top = sec.getBoundingClientRect().top;
-if(top < window.innerHeight - 100){
-sec.classList.add("show");
-}
-});
-});
-
-</script>
 
 </body>
 </html>
