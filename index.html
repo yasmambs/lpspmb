@@ -12,17 +12,20 @@
 :root{
 --emerald:#065f46;
 --emerald-soft:#0f766e;
---emerald-light:#ecfdf5;
+--emerald-light:#f0fdf4;
 --gold:#c6a75e;
 --text-dark:#0f172a;
 --text-light:#64748b;
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',sans-serif;background:#fff;color:var(--text-dark);overflow-x:hidden;scroll-behavior:smooth}
-section{padding:110px 8%}
-h2{font-size:38px;font-weight:800;margin-bottom:25px;color:var(--emerald)}
-p{color:var(--text-light);line-height:1.8}
+body{
+font-family:'Inter',sans-serif;
+background:#fff;
+color:var(--text-dark);
+overflow-x:hidden;
+scroll-behavior:smooth;
+}
 
 /* Progress Bar */
 #progressBar{
@@ -49,21 +52,31 @@ background:rgba(255,255,255,.85);
 backdrop-filter:blur(14px);
 box-shadow:0 8px 30px rgba(0,0,0,.06);
 }
-.logo{display:flex;align-items:center;gap:12px;font-weight:800;color:var(--emerald)}
+.logo{
+display:flex;align-items:center;gap:12px;
+font-weight:800;color:var(--emerald)
+}
 .logo img{width:42px}
-.nav-links{display:flex;gap:35px;font-weight:600}
-.nav-links a{position:relative;text-decoration:none;color:inherit}
+.nav-links{
+display:flex;gap:35px;font-weight:600
+}
+.nav-links a{
+position:relative;text-decoration:none;color:inherit
+}
 .nav-links a::after{
-content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--emerald);transition:.3s}
+content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;
+background:var(--emerald);transition:.3s
+}
 .nav-links a:hover::after{width:100%}
-.toggle{display:none;font-size:24px;cursor:pointer;color:var(--emerald)}
+.toggle{
+display:none;font-size:24px;cursor:pointer;color:var(--emerald)
+}
 
-/* Mega Menu */
+/* Mega */
 .program{position:relative}
 .mega{
 position:absolute;
-top:30px;
-left:0;
+top:30px;left:0;
 background:#fff;
 padding:20px;
 display:none;
@@ -77,70 +90,230 @@ box-shadow:0 20px 50px rgba(0,0,0,.1);
 /* Hero */
 .hero{
 height:100vh;
-background:linear-gradient(rgba(6,95,70,.65),rgba(6,95,70,.65)),
+background:
+linear-gradient(rgba(6,95,70,.65),rgba(6,95,70,.65)),
 url('https://images.unsplash.com/photo-1607013251379-e6eecfffe234?q=80&w=1400') center/cover fixed;
-display:flex;align-items:center;justify-content:center;text-align:center;color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+padding:0 8%;
 }
-.hero h1{font-size:56px;font-weight:800;margin-bottom:20px}
-.hero button{
-padding:16px 40px;border:none;border-radius:50px;background:white;color:var(--emerald);
-font-weight:700;cursor:pointer;transition:.3s}
-.hero button:hover{background:var(--emerald-light)}
+.hero h1{
+font-size:56px;
+font-weight:800;
+margin-bottom:20px;
+}
+.hero-buttons{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+margin-top:20px;
+}
+.btn-primary{
+padding:16px 40px;
+border:none;
+border-radius:50px;
+background:white;
+color:var(--emerald);
+font-weight:700;
+cursor:pointer;
+transition:.3s;
+}
+.btn-primary:hover{
+background:var(--emerald-light);
+}
+.btn-outline{
+padding:16px 40px;
+border-radius:50px;
+border:2px solid white;
+color:white;
+font-weight:600;
+transition:.3s;
+}
+.btn-outline:hover{
+background:white;
+color:var(--emerald);
+}
 
-/* Grid Cards */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:35px}
+/* Sections */
+section{
+padding:110px 8%;
+}
+section:nth-child(even){
+background:var(--emerald-light);
+}
+h2{
+font-size:38px;
+font-weight:800;
+margin-bottom:25px;
+color:var(--emerald);
+}
+p{
+color:var(--text-light);
+line-height:1.8;
+}
+
+/* Grid */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:35px;
+}
 .card{
-background:white;padding:35px;border-radius:20px;
+background:white;
+padding:35px;
+border-radius:20px;
 box-shadow:0 20px 60px rgba(0,0,0,.05);
 border:1px solid #f1f5f9;
-transition:.4s}
-.card:hover{transform:translateY(-10px);box-shadow:0 25px 70px rgba(6,95,70,.12)}
+transition:.4s;
+}
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 25px 70px rgba(6,95,70,.12);
+}
 
 /* Counter */
-.counter{font-size:48px;font-weight:800;color:var(--emerald)}
+.counter{
+font-size:48px;
+font-weight:800;
+color:var(--emerald);
+}
 
 /* FAQ */
-.faq-item{border-bottom:1px solid #e2e8f0;padding:20px 0;cursor:pointer;font-weight:600;color:var(--emerald)}
-.faq-answer{max-height:0;overflow:hidden;transition:max-height .4s ease}
-.faq-answer p{padding-top:10px;color:var(--text-light)}
+.faq-item{
+border-bottom:1px solid #e2e8f0;
+padding:20px 0;
+cursor:pointer;
+font-weight:600;
+color:var(--emerald);
+}
+.faq-answer{
+max-height:0;
+overflow:hidden;
+transition:max-height .4s ease;
+}
+.faq-answer p{
+padding-top:10px;
+color:var(--text-light);
+}
 
-/* Testimoni */
+/* Slider */
 .slider{overflow:hidden}
 .slide{display:none;text-align:center}
 .slide.active{display:block}
-.slide img{width:90px;height:90px;border-radius:50%;margin-bottom:10px}
+.slide img{
+width:90px;height:90px;
+border-radius:50%;
+margin-bottom:10px;
+}
 
-/* Dot Navigation */
+/* Dot Nav */
 .dot-nav{
-position:fixed;right:25px;top:50%;transform:translateY(-50%);
-display:flex;flex-direction:column;gap:14px;z-index:999}
+position:fixed;
+right:25px;
+top:50%;
+transform:translateY(-50%);
+display:flex;
+flex-direction:column;
+gap:14px;
+z-index:999;
+}
 .dot-nav a{
-width:10px;height:10px;background:#cbd5e1;border-radius:50%;transition:.3s}
-.dot-nav a:hover{background:var(--emerald);transform:scale(1.4)}
-@media(max-width:768px){.dot-nav{display:none}}
+width:10px;height:10px;
+background:#cbd5e1;
+border-radius:50%;
+transition:.3s;
+}
+.dot-nav a:hover{
+background:var(--emerald);
+transform:scale(1.4);
+}
+@media(max-width:768px){
+.dot-nav{display:none}
+}
 
 /* Reveal */
-.reveal{opacity:0;transform:translateY(40px);transition:all .8s ease}
-.reveal.active{opacity:1;transform:translateY(0)}
+.reveal{
+opacity:0;
+transform:translateY(40px);
+transition:all .8s ease;
+}
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
 
 /* Footer */
-footer{background:#f8fafc;padding:80px 8%;text-align:center;border-top:1px solid #e2e8f0}
-footer h4{font-size:18px;color:var(--emerald);margin-bottom:15px}
-.social{display:flex;justify-content:center;gap:20px;margin:10px 0}
-.social i{font-size:22px;color:var(--emerald);transition:.3s}
-.social i:hover{color:var(--gold)}
-.copyright{margin-top:20px;font-size:14px;color:#94a3b8}
+footer{
+background:#f8fafc;
+padding:60px 8% 30px;
+text-align:center;
+border-top:1px solid #e2e8f0;
+}
+footer h4{
+font-size:18px;
+color:var(--emerald);
+margin-bottom:15px;
+}
+.social{
+display:flex;
+justify-content:center;
+gap:20px;
+margin:10px 0;
+}
+.social i{
+font-size:22px;
+color:var(--emerald);
+transition:.3s;
+}
+.social i:hover{
+color:var(--gold);
+}
+.footer-divider{
+margin:25px auto;
+width:100%;
+height:1px;
+background:#e2e8f0;
+}
+.copyright{
+font-size:14px;
+color:#94a3b8;
+}
 
 /* WhatsApp */
 .wa{
-position:fixed;bottom:25px;right:25px;background:#25D366;width:60px;height:60px;
-display:flex;align-items:center;justify-content:center;border-radius:50%;
-color:white;font-size:26px;box-shadow:0 15px 35px rgba(0,0,0,.25);transition:.3s}
+position:fixed;
+bottom:25px;
+right:25px;
+background:#25D366;
+width:60px;height:60px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+color:white;
+font-size:26px;
+box-shadow:0 15px 35px rgba(0,0,0,.25);
+transition:.3s;
+}
 .wa:hover{transform:scale(1.1)}
 
 /* Responsive */
 @media(max-width:768px){
-.nav-links{display:none;flex-direction:column;background:white;position:absolute;top:80px;right:8%;padding:25px;border-radius:18px;box-shadow:0 20px 50px rgba(0,0,0,.1)}
+.nav-links{
+display:none;
+flex-direction:column;
+background:white;
+position:absolute;
+top:80px;
+right:8%;
+padding:25px;
+border-radius:18px;
+box-shadow:0 20px 50px rgba(0,0,0,.1);
+}
 .nav-links.active{display:flex}
 .toggle{display:block}
 .hero h1{font-size:36px}
@@ -157,6 +330,7 @@ color:white;font-size:26px;box-shadow:0 15px 35px rgba(0,0,0,.25);transition:.3s
 <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png">
 Modern International Islamic School
 </div>
+
 <div class="nav-links" id="navLinks">
 <a href="#">Beranda</a>
 <div class="program">
@@ -172,63 +346,86 @@ Modern International Islamic School
 <a href="#faq">FAQ</a>
 <a href="#">Login</a>
 </div>
+
 <div class="toggle" id="toggle"><i class="fa fa-bars"></i></div>
 </nav>
 
 <section class="hero">
 <div>
 <h1>Elite Modern Islamic Education</h1>
-<p>Menggabungkan nilai Islam & standar internasional</p><br>
-<button>Daftar Sekarang</button>
+<p>Menggabungkan nilai Islam & standar internasional</p>
+
+<div class="hero-buttons">
+<button class="btn-primary">Daftar Sekarang</button>
+<a href="login-siswa.html" class="btn-outline">Login</a>
+</div>
+
 </div>
 </section>
 
-<section id="alur" class="reveal"><h2>Alur Pendaftaran</h2>
+<section id="alur" class="reveal">
+<h2>Alur Pendaftaran</h2>
 <div class="grid">
 <div class="card">Isi Form Online</div>
 <div class="card">Tes Seleksi</div>
 <div class="card">Wawancara</div>
 <div class="card">Pengumuman</div>
-</div></section>
+</div>
+</section>
 
-<section id="jadwal" class="reveal"><h2>Jadwal Pendaftaran</h2>
-<p>Dibuka Januari - Mei 2026</p></section>
+<section id="jadwal" class="reveal">
+<h2>Jadwal Pendaftaran</h2>
+<p>Dibuka Januari - Mei 2026</p>
+</section>
 
-<section id="pengumuman" class="reveal"><h2>Pengumuman</h2>
-<p>Hasil seleksi diumumkan via website & email resmi.</p></section>
+<section id="pengumuman" class="reveal">
+<h2>Pengumuman</h2>
+<p>Hasil seleksi diumumkan via website & email resmi.</p>
+</section>
 
-<section id="brosur" class="reveal"><h2>Brosur Lengkap</h2>
-<div class="card">Download Brosur PDF</div></section>
+<section id="brosur" class="reveal">
+<h2>Brosur Lengkap</h2>
+<div class="card">Download Brosur PDF</div>
+</section>
 
-<section id="program" class="reveal"><h2>Program Unggulan</h2>
+<section id="program" class="reveal">
+<h2>Program Unggulan</h2>
 <div class="grid">
 <div class="card">Tahfidz Intensif</div>
 <div class="card">Cambridge Curriculum</div>
 <div class="card">Digital Islamic School</div>
-</div></section>
+</div>
+</section>
 
-<section id="statistik" class="reveal"><h2>Statistik</h2>
+<section id="statistik" class="reveal">
+<h2>Statistik</h2>
 <div class="grid">
 <div class="card"><div class="counter" data-target="1200">0</div>Siswa</div>
 <div class="card"><div class="counter" data-target="95">0</div>% Kelulusan</div>
 <div class="card"><div class="counter" data-target="150">0</div>Guru</div>
-</div></section>
+</div>
+</section>
 
-<section class="reveal"><h2>Fasilitas</h2>
+<section class="reveal">
+<h2>Fasilitas</h2>
 <div class="grid">
 <div class="card">Smart Classroom</div>
 <div class="card">Asrama Modern</div>
 <div class="card">Masjid Representatif</div>
-</div></section>
+</div>
+</section>
 
-<section class="reveal"><h2>Kegiatan Eskul</h2>
+<section class="reveal">
+<h2>Kegiatan Eskul</h2>
 <div class="grid">
 <div class="card">Robotics</div>
 <div class="card">Panahan</div>
 <div class="card">English Club</div>
-</div></section>
+</div>
+</section>
 
-<section class="reveal"><h2>Testimoni Alumni</h2>
+<section class="reveal">
+<h2>Testimoni Alumni</h2>
 <div class="slider">
 <div class="slide active">
 <img src="https://randomuser.me/api/portraits/men/32.jpg">
@@ -238,19 +435,30 @@ Modern International Islamic School
 <img src="https://randomuser.me/api/portraits/women/44.jpg">
 <p>"Lingkungan islami & internasional."</p>
 </div>
-</div></section>
-
-<section id="faq" class="reveal"><h2>FAQ</h2>
-<div class="faq-item">Apakah tersedia beasiswa?
-<div class="faq-answer"><p>Ya, tersedia beasiswa prestasi & tahfidz.</p></div>
-</div>
-<div class="faq-item">Apakah ada asrama?
-<div class="faq-answer"><p>Ya, boarding modern terpisah putra-putri.</p></div>
 </div>
 </section>
 
-<section id="kontak" class="reveal"><h2>Lokasi Madrasah</h2>
-<iframe src="https://maps.google.com/maps?q=jakarta&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="300" style="border-radius:15px;border:none"></iframe>
+<section id="faq" class="reveal">
+<h2>FAQ</h2>
+<div class="faq-item">
+Apakah tersedia beasiswa?
+<div class="faq-answer">
+<p>Ya, tersedia beasiswa prestasi & tahfidz.</p>
+</div>
+</div>
+<div class="faq-item">
+Apakah ada asrama?
+<div class="faq-answer">
+<p>Ya, boarding modern terpisah putra-putri.</p>
+</div>
+</div>
+</section>
+
+<section id="kontak" class="reveal">
+<h2>Lokasi Madrasah</h2>
+<iframe src="https://maps.google.com/maps?q=jakarta&t=&z=13&ie=UTF8&iwloc=&output=embed"
+width="100%" height="300"
+style="border-radius:15px;border:none"></iframe>
 </section>
 
 <footer>
@@ -261,6 +469,9 @@ Modern International Islamic School
 <i class="fab fa-facebook"></i>
 </div>
 <p>Jl. Pendidikan No.1, Indonesia</p>
+
+<div class="footer-divider"></div>
+
 <div class="copyright">
 © 2026 Modern International Islamic School. All rights reserved.
 </div>
@@ -296,8 +507,10 @@ let update=()=>{
 let target=+counter.dataset.target;
 let count=+counter.innerText;
 let inc=target/200;
-if(count<target){counter.innerText=Math.ceil(count+inc);setTimeout(update,20)}
-else counter.innerText=target;
+if(count<target){
+counter.innerText=Math.ceil(count+inc);
+setTimeout(update,20);
+}else counter.innerText=target;
 }
 update();
 });
