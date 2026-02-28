@@ -279,70 +279,47 @@ style="border-radius:15px;border:none"></iframe>
 <a href="#" class="wa"><i class="fab fa-whatsapp"></i></a>
 
 <script>
-const toggle=document.getElementById('toggle');
-const navLinks=document.getElementById('navLinks');
-toggle.onclick=()=>navLinks.classList.toggle('active');
+// Navbar toggle mobile
+const toggle = document.getElementById('toggle');
+const navLinks = document.getElementById('navLinks');
+toggle.onclick = () => navLinks.classList.toggle('active');
 
-/* Navbar scroll & progress */
-window.addEventListener('scroll',()=>{
-document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);
-let winScroll=document.documentElement.scrollTop;
-let height=document.documentElement.scrollHeight-document.documentElement.clientHeight;
-document.getElementById("progressBar").style.width=(winScroll/height)*100+"%";
-document.querySelector('.hero').style.backgroundPositionY = -(window.scrollY*0.25) + "px";
+// Progress bar
+window.addEventListener('scroll', () => {
+  const navbar = document.getElementById('navbar');
+  navbar.classList.toggle('scrolled', window.scrollY > 50);
 
-/* Navbar text auto contrast */
-const hero=document.querySelector('.hero');
-const heroTop=hero.getBoundingClientRect().top;
-const heroHeight=hero.offsetHeight;
-let navbar=document.getElementById('navbar');
-if(window.scrollY<heroHeight*0.6){
-navbar.style.color= '#fff';
-document.querySelectorAll('.nav-links a').forEach(a=>a.style.color='#fff');
-}else{
-navbar.style.color= 'var(--primary)';
-document.querySelectorAll('.nav-links a').forEach(a=>a.style.color='var(--primary)');
-}
+  const winScroll = document.documentElement.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  document.getElementById("progressBar").style.width = (winScroll/height)*100 + "%";
+
+  // Parallax hero
+  document.querySelector('.hero').style.backgroundPositionY = -(window.scrollY*0.25) + "px";
+
+  // Auto navbar color based on section background
+  document.querySelectorAll('section, .hero').forEach(sec => {
+    const rect = sec.getBoundingClientRect();
+    if(rect.top <= 60 && rect.bottom >= 60) { // navbar berada di section
+      const bgColor = window.getComputedStyle(sec).backgroundColor;
+      const rgb = bgColor.match(/\d+/g);
+      if(rgb) {
+        // brightness formula
+        const brightness = (0.299*rgb[0] + 0.587*rgb[1] + 0.114*rgb[2]);
+        if(brightness < 150){ 
+          // gelap → navbar putih soft
+          navbar.style.color = 'rgba(255,255,255,0.9)';
+          document.querySelectorAll('.nav-links a').forEach(a=>a.style.color='rgba(255,255,255,0.9)');
+          document.querySelector('.toggle i').style.color = 'rgba(255,255,255,0.9)';
+        } else {
+          // terang → navbar gelap
+          navbar.style.color = 'var(--text-dark)';
+          document.querySelectorAll('.nav-links a').forEach(a=>a.style.color='var(--text-dark)');
+          document.querySelector('.toggle i').style.color = 'var(--navy)';
+        }
+      }
+    }
+  });
 });
-
-/* Counter */
-document.querySelectorAll('.counter').forEach(counter=>{
-let update=()=>{
-let target=+counter.dataset.target;
-let count=+counter.innerText;
-let inc=target/200;
-if(count<target){counter.innerText=Math.ceil(count+inc);setTimeout(update,20);}
-else counter.innerText=target;
-}
-update();
-});
-
-/* FAQ Accordion */
-document.querySelectorAll('.faq-item').forEach(item=>{
-item.addEventListener('click',()=>{
-let ans=item.querySelector('.faq-answer');
-ans.style.maxHeight=ans.style.maxHeight?null:ans.scrollHeight+'px';
-});
-});
-
-/* Slider */
-let slides=document.querySelectorAll('.slide');
-let index=0;
-setInterval(()=>{
-slides[index].classList.remove('active');
-index=(index+1)%slides.length;
-slides[index].classList.add('active');
-},4000);
-
-/* Card scroll animation */
-function revealCards(){
-document.querySelectorAll('.card').forEach(card=>{
-let top=card.getBoundingClientRect().top;
-if(top<window.innerHeight-100){card.classList.add('visible');}
-});
-}
-window.addEventListener('scroll',revealCards);
-revealCards();
 </script>
 </body>
 </html>
